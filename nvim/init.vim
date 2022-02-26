@@ -5,8 +5,11 @@ Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'voldikss/vim-floaterm'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'vim-airline/vim-airline'
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vimsence/vimsence' " DISCORD RICH PRESENCE
 Plug 'preservim/nerdtree'
 Plug 'pangloss/vim-javascript'
 Plug 'udalov/kotlin-vim'
@@ -29,12 +32,14 @@ set noundofile nobackup noswapfile
 set backspace=indent,eol,start
 set encoding=utf-8 fileencoding=utf-8
 set nohlsearch
+set ttimeoutlen=0
 set hidden
 set incsearch
 set wildmenu
 set cursorline
 set noshowmode
 
+" let g:solarized_termcolors=256
 colorscheme gruvbox
 set bg=dark
 
@@ -46,17 +51,23 @@ end
 let g:indentLine_setColors = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
+let NERDTreeShowHidden=1
+" let g:airline_powerline_fonts = 1
 
 let mapleader = ' '
 let g:user_emmet_leader_key = '<C-e>'
+let g:coc_node_path='/home/soukied/.nvm/versions/node/v16.14.0/bin/node'
 "Disable Arrow Key
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-noremap <Leader>l :n<CR>
-noremap <Leader>h :N<CR>
+noremap <Leader>n :n<CR>
+noremap <Leader>p :N<CR>
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -67,6 +78,7 @@ vnoremap <silent> <C-J> <Esc>
 nnoremap <silent> <C-J> <nop>
 nnoremap <C-T> :NERDTreeToggle<CR>
 nnoremap <F12> :FloatermToggle<CR>
+nnoremap <F2> :CocDiagnostics<CR>
 nnoremap <silent> <C-P> :FZF<CR>
 
 " CoC Configuration
