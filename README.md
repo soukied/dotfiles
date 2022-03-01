@@ -2,4 +2,4 @@
 
 ---
 
-File konfigurasi Arch Linux
+File konfigurasi Arch Linux milik Adhya Adam Sulthan
