@@ -65,18 +65,17 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
-noremap <Leader>n :n<CR>
-noremap <Leader>p :N<CR>
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
-nnoremap <Leader>wn :bn<CR>
-nnoremap <Leader>wp :bp<CR>
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+noremap <Leader>n :bn<CR>
+noremap <Leader>p :bN<CR>
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
 
 inoremap <silent> <C-J> <Esc>
 vnoremap <silent> <C-J> <Esc>
