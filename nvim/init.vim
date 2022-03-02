@@ -70,12 +70,12 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-noremap <Leader>n :bn<CR>
-noremap <Leader>p :bN<CR>
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
+noremap <leader>n :bn<CR>
+noremap <leader>N :bp<CR>
+nnoremap <leader>wj <C-W>j
+nnoremap <leader>wk <C-W>k
+nnoremap <leader>wh <C-W>h
+nnoremap <leader>wl <C-W>l
 
 inoremap <silent> <C-J> <Esc>
 vnoremap <silent> <C-J> <Esc>
