@@ -8,6 +8,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
@@ -30,6 +31,8 @@ set nohlsearch
 set incsearch
 set noshowmode
 set wildmenu
+set splitright
+set splitbelow
 set noerrorbells
 set ttimeoutlen=0
 set vb t_vb=
