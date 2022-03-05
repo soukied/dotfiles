@@ -1,7 +1,5 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local protocol = require 'vim.lsp.protocol'
-
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -10,7 +8,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<C
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -117,40 +115,53 @@ sources = cmp.config.sources({
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
 sources = cmp.config.sources({
-		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
+		{ name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
 			}, {
 		{ name = 'buffer' },
 	})
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-	sources = {
-		{ name = 'buffer' }
-	}
-})
+-- cmp.setup.cmdline('/', {
+-- 	sources = {
+-- 		{ name = 'buffer' }
+-- 	}
+-- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-	sources = cmp.config.sources({
-		{ name = 'path' }
-		}, {
-		{ name = 'cmdline' }
-	})
-})
+-- cmp.setup.cmdline(':', {
+-- 	sources = cmp.config.sources({
+-- 		{ name = 'path' }
+-- 		}, {
+-- 		{ name = 'cmdline' }
+-- 	})
+-- })
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+local PID = vim.fn.getpid()
 local LSP = {
 	["tsserver"] = {
 		single_file_support = true
 	},
 	["clangd"] = {},
-	["rls"] = {
+	["dartls"] = {
 		single_file_support = true
 	},
-	["pyright"] = {}
+	["rust_analyzer"] = {},
+	["jedi_language_server"] = {},
+	['kotlin_language_server'] = {
+		single_file_support = true
+	},
+	["omnisharp"] = {
+		cmd = {"omnisharp", "--languageserver","--hostPID",tostring(PID)},
+		single_file_support = true
+	},
+	["jsonls"] = {},
+	["cssls"] = {},
+	["html"] = {},
+	["sumneko_lua"] = {}
 }
 
 for k,v in pairs(LSP) do

@@ -3,6 +3,7 @@ set nocompatible
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', {'as':'dracula'}
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'joshdick/onedark.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
@@ -38,7 +39,15 @@ set ttimeoutlen=0
 set vb t_vb=
 colorscheme nord
 set bg=dark
-
+if exists('$TMUX')
+	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+else
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
+    let &t_SR = "\e[4 q"
+endif
 if has("gui_running")
 	set guifont=FiraCode\ Nerd\ Font\ 11
 	colorscheme default
@@ -57,3 +66,5 @@ nnoremap <leader>h <C-W>h
 nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
+
+source ~/.vim/coc.vim
