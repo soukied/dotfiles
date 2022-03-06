@@ -150,6 +150,10 @@ local LSP = {
 		single_file_support = true
 	},
 	["rust_analyzer"] = {},
+	['jdtls'] = {
+		cmd = {'jdtls'},
+		single_file_support = false
+	},
 	["jedi_language_server"] = {},
 	['kotlin_language_server'] = {
 		single_file_support = true
