@@ -149,7 +149,9 @@ local LSP = {
 	["dartls"] = {
 		single_file_support = true
 	},
-	["rust_analyzer"] = {},
+	["rls"] = {
+		single_file_support = false
+	},
 	['jdtls'] = {
 		cmd = {'jdtls'},
 		single_file_support = false

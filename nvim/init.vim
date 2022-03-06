@@ -45,7 +45,6 @@ set backspace=indent,eol,start
 set encoding=utf-8 fileencoding=utf-8
 set clipboard+=unnamedplus
 set nohlsearch
-set ttimeoutlen=50
 set hidden
 set incsearch
 set splitright
