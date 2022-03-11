@@ -36,8 +36,9 @@ set splitright
 set splitbelow
 set noerrorbells
 set ttimeoutlen=0
+set cursorline
 set vb t_vb=
-colorscheme nord
+colorscheme gruvbox
 set bg=dark
 if exists('$TMUX')
 	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"

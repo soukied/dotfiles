@@ -15,8 +15,10 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'tpope/vim-fugitive'
+Plug 'voldikss/vim-floaterm'
+Plug 'tribela/vim-transparent'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'cohama/lexima.vim'
+Plug 'windwp/nvim-autopairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/nvim-lspconfig'
@@ -36,7 +38,7 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-" autocmd VimEnter * :NoMatchParen
+autocmd VimEnter * :NoMatchParen
 set nu rnu
 set tabstop=4 softtabstop=4 shiftwidth=4
 set autoindent
@@ -54,11 +56,8 @@ set cursorline
 set noshowmode
 set completeopt=menu,menuone,noselect
 
-" Cursor Tmux Mode
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " let g:solarized_termcolors=256
-colorscheme nord
+colorscheme gruvbox
 set bg=dark
 
 if has("gui_running")
@@ -77,6 +76,11 @@ let g:user_emmet_leader_key = '<C-e>'
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
+let g:floaterm_keymap_new    = '<F7>'
+let g:floaterm_keymap_prev   = '<F8>'
+let g:floaterm_keymap_next   = '<F9>'
+let g:floaterm_keymap_toggle = '<F12>'
+
 "Disable Arrow Key
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
@@ -86,6 +90,10 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+xnoremap <Up> <Nop>
+xnoremap <Down> <Nop>
+xnoremap <Left> <Nop>
+xnoremap <Right> <Nop>
 
 noremap <leader>n :bn<CR>
 noremap <leader>p :bp<CR>
@@ -105,15 +113,20 @@ nnoremap <C-T> :NERDTreeToggle<CR>
 
 vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
+vnoremap <silent> > >gv
+vnoremap <silent> < <gv
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent> <C-p> <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <silent> <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <silent> <leader>fh <cmd>Telescope help_tags<cr>
 
+" Lua Configurations
 lua << EOF
-require 'soukied.lsp'
-require 'soukied.lspsaga'
-require 'soukied.treesitter'
+require('soukied.lspsaga')
+require('soukied.treesitter')
+require('nvim-autopairs').setup{}
+require('soukied.lsp')
 EOF

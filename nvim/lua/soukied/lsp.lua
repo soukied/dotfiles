@@ -152,6 +152,7 @@ local LSP = {
 	["rls"] = {
 		single_file_support = false
 	},
+	['bashls'] = {},
 	['jdtls'] = {
 		cmd = {'jdtls'},
 		single_file_support = false
