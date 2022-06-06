@@ -1,5 +1,5 @@
 #/bin/sh
-echo "[*] Moving backups..."
+echo "[*] Copying backups..."
 cp ~/.bashrc bash/.bashrc
 cp ~/.bash_profile bash/.bash_profile
 cp ~/.config/nvim/lua nvim -rf

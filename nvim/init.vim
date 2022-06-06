@@ -23,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neovim/nvim-lspconfig'
 Plug 'sheerun/vim-polyglot'
+Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'pangloss/vim-javascript'
 Plug 'udalov/kotlin-vim'
@@ -72,7 +73,6 @@ let NERDTreeShowHidden=1
 let g:airline_powerline_fonts = 1
 
 let mapleader = ' '
-let g:user_emmet_leader_key = '<C-e>'
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
