@@ -19,3 +19,5 @@ export PS1='\[\e[0;36m\][\[\e[0;2;92m\]\u\[\e[0;36m\]@\[\e[0;2;92m\]\H \[\e[0;2;
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(starship init bash)"

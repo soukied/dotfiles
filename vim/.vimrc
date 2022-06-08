@@ -23,5 +23,9 @@ if has("gui_running")
 	set guifont=FiraCode\ Nerd\ Font\ 12
 endif
 
-colorscheme gruvbox
+
+
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 set bg=dark
