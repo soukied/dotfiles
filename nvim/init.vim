@@ -1,12 +1,13 @@
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-Plug 'tami5/lspsaga.nvim'
+Plug 'tami5/lspsaga.nvim', {'branch':'main'}
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 " Plug 'wfxr/minimap.vim'
 " Auto Complete
+Plug 'vimsence/vimsence' " Discord rich presence
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -65,6 +66,8 @@ if has("gui_running")
 	set cursorline
 	set guifont=FiraCode\ Nerd\ Font\ 11
 end
+
+" Pyenv VirtualEnv variable
 
 let g:indentLine_setColors = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -125,8 +128,8 @@ nnoremap <silent> <leader>fh <cmd>Telescope help_tags<cr>
 
 " Lua Configurations
 lua << EOF
-require('soukied.lspsaga')
 require('soukied.treesitter')
 require('nvim-autopairs').setup{}
 require('soukied.lsp')
+require('soukied.lspsaga')
 EOF
