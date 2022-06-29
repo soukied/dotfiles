@@ -141,6 +141,7 @@ sources = cmp.config.sources({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local PID = vim.fn.getpid()
+local root_pattern = require'lspconfig'.util.root_pattern
 local LSP = {
 	["tsserver"] = {
 		single_file_support = true
@@ -149,8 +150,8 @@ local LSP = {
 	["dartls"] = {
 		single_file_support = true
 	},
-	["rls"] = {
-		single_file_support = false
+	["rust_analyzer"] = {
+		root_dir = root_pattern("Cargo.toml", "rust-project.json")
 	},
 	['bashls'] = {},
 	['jdtls'] = {

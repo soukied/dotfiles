@@ -7,6 +7,7 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 " Plug 'wfxr/minimap.vim'
 " Auto Complete
+Plug 'dracula/vim'
 Plug 'vimsence/vimsence' " Discord rich presence
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -17,7 +18,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'tpope/vim-fugitive'
 Plug 'voldikss/vim-floaterm'
-Plug 'tribela/vim-transparent'
+" Plug 'tribela/vim-transparent'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-autopairs'
 Plug 'vim-airline/vim-airline'
@@ -47,7 +48,6 @@ set autoindent
 set noundofile nobackup noswapfile
 set backspace=indent,eol,start
 set encoding=utf-8 fileencoding=utf-8
-set clipboard+=unnamedplus
 set nohlsearch
 set hidden
 set incsearch
@@ -59,7 +59,7 @@ set noshowmode
 set completeopt=menu,menuone,noselect
 
 " let g:solarized_termcolors=256
-colorscheme gruvbox
+colorscheme dracula
 set bg=dark
 
 if has("gui_running")
@@ -68,6 +68,7 @@ if has("gui_running")
 end
 
 " Pyenv VirtualEnv variable
+let g:python3_host_prog="$HOME/.pyenv/versions/nvim/bin/python"
 
 let g:indentLine_setColors = 0
 let g:airline#extensions#tabline#enabled = 1
