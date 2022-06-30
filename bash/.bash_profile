@@ -8,3 +8,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 export DXVK_ASYNC=1
+export DENO_INSTALL="/home/soukied/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export DVM_DIR="/home/soukied/.dvm"
+export PATH="$DVM_DIR/bin:$PATH"

@@ -141,19 +141,22 @@ sources = cmp.config.sources({
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local PID = vim.fn.getpid()
-local root_pattern = require'lspconfig'.util.root_pattern
+local lspconfig = require 'lspconfig'
+local root_pattern = lspconfig.util.root_pattern
 local LSP = {
 	["tsserver"] = {
 		single_file_support = true
 	},
 	["clangd"] = {},
-	["dartls"] = {
-		single_file_support = true
-	},
+	["dartls"] = {},
 	["rust_analyzer"] = {
 		root_dir = root_pattern("Cargo.toml", "rust-project.json")
 	},
 	['bashls'] = {},
+	['haxe_language_server'] = {
+		cmd = {'node', '/home/soukied/compiled_programs/haxe-language-server/bin/server.js'},
+		root_dir = root_pattern("*.hxml")
+	},
 	['jdtls'] = {
 		cmd = {'jdtls'},
 		single_file_support = false
@@ -178,7 +181,7 @@ for k,v in pairs(LSP) do
 	v.flags = {
 		debounce_text_changes = 150,
 	}
-	require'lspconfig'[k].setup(v)
+	lspconfig[k].setup(v)
 end
 
 -- icon
