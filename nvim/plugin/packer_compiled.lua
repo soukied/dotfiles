@@ -166,7 +166,7 @@ _G.packer_plugins = {
     url = "https://github.com/vim-airline/vim-airline"
   },
   ["vim-airline-themes"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27:AirlineTheme onedark \bcmd\bvim\0" },
+    config = { "\27LJ\2\n7\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\fonedark\18airline_theme\6g\bvim\0" },
     loaded = true,
     path = "/home/soukied/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
@@ -200,7 +200,7 @@ try_loadstring("\27LJ\2\nO\0\0\4\0\4\0\t6\0\0\0006\2\1\0'\3\2\0B\0\3\3\15\0\0\0X
 time([[Config for lspsaga.nvim]], false)
 -- Config for: vim-airline-themes
 time([[Config for vim-airline-themes]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27:AirlineTheme onedark \bcmd\bvim\0", "config", "vim-airline-themes")
+try_loadstring("\27LJ\2\n7\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\fonedark\18airline_theme\6g\bvim\0", "config", "vim-airline-themes")
 time([[Config for vim-airline-themes]], false)
 if should_profile then save_profiles() end
 

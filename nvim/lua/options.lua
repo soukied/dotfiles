@@ -16,7 +16,7 @@ local options = {
 	undofile = false,
 	backup = false,
 	-- no hidden
-	hidden = false,
+	hidden = true,
 	-- increment search
 	incsearch = true,
 	-- split right and below

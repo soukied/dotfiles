@@ -1,15 +1,4 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
-local status, packer = pcall(require, "packer")
-if not status then
-	return
-end
-
-return packer.startup(function(use)
+local plugin_setup = function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- LSP support
@@ -49,7 +38,7 @@ return packer.startup(function(use)
 	-- }
 	-- airline
 	use 'vim-airline/vim-airline'
-	use {'vim-airline/vim-airline-themes', config = function() vim.cmd[[:AirlineTheme onedark ]] end}
+	use {'vim-airline/vim-airline-themes', config = function() vim.g.airline_theme = "onedark" end}
 	-- devicons
 	use 'ryanoasis/vim-devicons'
 	use 'nvim-lua/plenary.nvim'
@@ -65,4 +54,17 @@ return packer.startup(function(use)
 	-- }
 	-- Vim Wrapper
 	use 'tpope/vim-fugitive'
-end)
+end
+
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+local status, packer = pcall(require, "packer")
+if not status then
+	return
+end
+
+return packer.startup(plugin_setup)
