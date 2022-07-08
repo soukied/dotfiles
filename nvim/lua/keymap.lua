@@ -39,6 +39,9 @@ keymap('v','<S-Tab>', '<gv')
 keymap('v','>', '>gv')
 keymap('v','<', '<gv')
 
+-- Comment Toggle
+keymap('v','<leader>//', ':\'<,\'>CommentToggle<CR>')
+
 -- Find files using Telescope command-line sugar.
 keymap('n','<C-p>', '<cmd>Telescope find_files<cr>')
 keymap('n','<leader>ff', '<cmd>Telescope find_files<cr>')

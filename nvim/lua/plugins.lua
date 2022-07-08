@@ -33,14 +33,19 @@ local plugin_setup = function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Comment Toggle
+	use {
+		'terrortylor/nvim-comment',
+		config = function() require("nvim_comment").setup() end
+	}
 	-- Tree-sitter
 	use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
 	-- Emmet
 	use 'mattn/emmet-vim'
 	-- Firenvim
 	use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
+		'glacambre/firenvim',
+		run = function() vim.fn['firenvim#install'](0) end
 	} 
 	-- themes
 	use 'joshdick/onedark.vim'
@@ -51,9 +56,9 @@ local plugin_setup = function(use)
 	use 'tomasiser/vim-code-dark'
 	-- auto pairs
 	use {
-	'windwp/nvim-autopairs',
-	config = function() require('nvim-autopairs').setup() end
-}
+		'windwp/nvim-autopairs',
+		config = function() require('nvim-autopairs').setup() end
+	}
 	-- lua line
 	-- use {
 	-- 	'nvim-lualine/lualine.nvim',
@@ -71,13 +76,6 @@ local plugin_setup = function(use)
 	}
 	-- NERDTree
 	use 'preservim/nerdtree'
-	-- use {
-	-- 	'kyazdani42/nvim-tree.lua',
-	-- 	config = function ()
-	-- 		local loaded,tree = pcall(require,'nvim-tree')
-	-- 		if loaded then tree.setup() end
-	-- 	end
-	-- }
 	-- Vim Wrapper
 	use 'tpope/vim-fugitive'
 
