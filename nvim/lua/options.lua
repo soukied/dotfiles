@@ -22,10 +22,12 @@ local options = {
 	-- split right and below
 	splitbelow = true,
 	splitright = true,
+	cursorline = true,
 	showmode = false,
 	completeopt = {"menu", "menuone", "noselect"},
 	bg = "dark",
 	laststatus = 3,
+	guifont="FiraCode Nerd Font:h10"
 }
 
 vim.cmd("colorscheme " .. colorscheme)
@@ -34,6 +36,7 @@ autocmd VimEnter * :NoMatchParen
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme="badwolf"
 ]]
 
 for k,v in pairs(options) do

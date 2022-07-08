@@ -1,10 +1,22 @@
 local plugin_setup = function(use)
 	use 'wbthomason/packer.nvim'
 
+	-- Vim Language Support
+	use 'sheerun/vim-polyglot'
+	-- Floating Terminal Support
+	use {
+		'voldikss/vim-floaterm',
+		config = function()
+			vim.g.floaterm_keymap_new    = '<F7>'
+			vim.g.floaterm_keymap_prev   = '<F8>'
+			vim.g.floaterm_keymap_next   = '<F9>'
+			vim.g.floaterm_keymap_toggle = '<F12>'
+		end
+	}
 	-- LSP support
 	use 'neovim/nvim-lspconfig'
 	use {
-		'kkharji/lspsaga.nvim',
+		'tami5/lspsaga.nvim',
 		branch = 'main',
 		config = function()
 			local saga_loaded, saga = pcall(require,"lspsaga")
@@ -23,14 +35,25 @@ local plugin_setup = function(use)
 	use 'hrsh7th/vim-vsnip'
 	-- Tree-sitter
 	use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
+	-- Emmet
+	use 'mattn/emmet-vim'
+	-- Firenvim
+	use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+	} 
 	-- themes
 	use 'joshdick/onedark.vim'
+	use 'danilo-augusto/vim-afterglow'
 	use 'arcticicestudio/nord-vim'
 	use 'morhetz/gruvbox'
 	use {'dracula/vim', as = 'dracula'}
 	use 'tomasiser/vim-code-dark'
 	-- auto pairs
-	use 'cohama/lexima.vim'
+	use {
+	'windwp/nvim-autopairs',
+	config = function() require('nvim-autopairs').setup() end
+}
 	-- lua line
 	-- use {
 	-- 	'nvim-lualine/lualine.nvim',
@@ -38,11 +61,14 @@ local plugin_setup = function(use)
 	-- }
 	-- airline
 	use 'vim-airline/vim-airline'
-	use {'vim-airline/vim-airline-themes', config = function() vim.g.airline_theme = "onedark" end}
+	use 'vim-airline/vim-airline-themes'
 	-- devicons
 	use 'ryanoasis/vim-devicons'
 	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = {{'nvim-lua/plenary.nvim'}}
+	}
 	-- NERDTree
 	use 'preservim/nerdtree'
 	-- use {
@@ -54,6 +80,10 @@ local plugin_setup = function(use)
 	-- }
 	-- Vim Wrapper
 	use 'tpope/vim-fugitive'
+
+	if packer_bootstrap then
+		require('packer').sync()
+	end
 end
 
 local fn = vim.fn
