@@ -43,15 +43,17 @@ for k,v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.g.user_emmet_leader_key = "<C-P>"
+
 -- icon
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    -- This sets the spacing and the prefix, obviously.
-    virtual_text = {
-		spacing = 4,
-		prefix = ''
-    }
-  }
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+			underline = true,
+			-- This sets the spacing and the prefix, obviously.
+			virtual_text = {
+				spacing = 4,
+				prefix = ''
+		}
+	}
 )
 

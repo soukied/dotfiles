@@ -21,10 +21,12 @@ local plugin_setup = function(use)
 		config = function()
 			local saga_loaded, saga = pcall(require,"lspsaga")
 			if saga_loaded then
-				saga.init_lsp_saga()
+				saga.init_lsp_saga {}
 			end
 		end
 	}
+	-- Indent Line
+	-- use "lukas-reineke/indent-blankline.nvim"
 	-- Completion LSP
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -33,6 +35,14 @@ local plugin_setup = function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Discord Rich Presence
+	use {
+		'andweeb/presence.nvim',
+		config = function()
+			local presence_loaded, presence = pcall(require, 'presence')
+			if not presence_loaded then return end
+		end
+	}
 	-- Comment Toggle
 	use {
 		'terrortylor/nvim-comment',
@@ -41,12 +51,13 @@ local plugin_setup = function(use)
 	-- Tree-sitter
 	use {'nvim-treesitter/nvim-treesitter', run = ":TSUpdate"}
 	-- Emmet
-	use 'mattn/emmet-vim'
+	use {
+	'mattn/emmet-vim' }
 	-- Firenvim
 	use {
 		'glacambre/firenvim',
 		run = function() vim.fn['firenvim#install'](0) end
-	} 
+	}
 	-- themes
 	use 'joshdick/onedark.vim'
 	use 'danilo-augusto/vim-afterglow'

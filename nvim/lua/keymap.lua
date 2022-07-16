@@ -3,8 +3,8 @@ local keymap = function(mode, key, map) vim.api.nvim_set_keymap(mode, key, map, 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Toggle Tree
 keymap("n", "<C-T>" , ":NERDTreeToggle<CR>")
-
 
 keymap('i', '<Up>', '<Nop>')
 keymap('i', '<Down>', '<Nop>')
@@ -40,7 +40,7 @@ keymap('v','>', '>gv')
 keymap('v','<', '<gv')
 
 -- Comment Toggle
-keymap('v','<leader>//', ':\'<,\'>CommentToggle<CR>')
+keymap('v','<leader>/', ':\'<,\'>CommentToggle<CR>')
 
 -- Find files using Telescope command-line sugar.
 keymap('n','<C-p>', '<cmd>Telescope find_files<cr>')
@@ -48,3 +48,8 @@ keymap('n','<leader>ff', '<cmd>Telescope find_files<cr>')
 keymap('n','<leader>fg', '<cmd>Telescope live_grep<cr>')
 keymap('n','<leader>fb', '<cmd>Telescope buffers<cr>')
 keymap('n','<leader>fh', '<cmd>Telescope help_tags<cr>')
+
+keymap('i', '<A-j>', '<esc>')
+for _, v in pairs({'n', 'v', 'x', 'c'}) do
+	keymap(v, '<C-j>', '<esc>')
+end
