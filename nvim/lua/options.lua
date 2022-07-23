@@ -1,4 +1,4 @@
-local colorscheme = 'codedark'
+local colorscheme = 'nord'
 local encoding = 'utf-8'
 local options = {
 	-- relative line numbers
@@ -24,6 +24,7 @@ local options = {
 	splitright = true,
 	cursorline = true,
 	showmode = false,
+	-- termguicolors = true,
 	completeopt = {"menu", "menuone", "noselect"},
 	bg = "dark",
 	laststatus = 3,
@@ -34,9 +35,7 @@ vim.cmd("colorscheme " .. colorscheme)
 vim.cmd[[
 autocmd VimEnter * :NoMatchParen
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme="onedark"
 ]]
 
 for k,v in pairs(options) do

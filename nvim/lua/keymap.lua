@@ -49,7 +49,13 @@ keymap('n','<leader>fg', '<cmd>Telescope live_grep<cr>')
 keymap('n','<leader>fb', '<cmd>Telescope buffers<cr>')
 keymap('n','<leader>fh', '<cmd>Telescope help_tags<cr>')
 
-keymap('i', '<A-j>', '<esc>')
-for _, v in pairs({'n', 'v', 'x', 'c'}) do
+-- Resize windows
+keymap('n', '<A-Up>', '<C-W>+')
+keymap('n', '<A-Down>', '<C-W>-')
+keymap('n', '<A-Right>', '<C-W>>')
+keymap('n', '<A-Left>', '<C-W><')
+
+for _, v in pairs({'i', 'v', 'x', 'c'}) do
 	keymap(v, '<C-j>', '<esc>')
+	keymap(v, '<C-k>', '<esc>')
 end

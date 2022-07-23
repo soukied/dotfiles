@@ -25,6 +25,10 @@ local plugin_setup = function(use)
 			end
 		end
 	}
+	-- Vim Gitgutter
+	use {'lewis6991/gitsigns.nvim', config = function() require("gitsigns").setup() end}
+	-- Buffer Tablibe
+	use 'pacha/vem-tabline'
 	-- Indent Line
 	-- use "lukas-reineke/indent-blankline.nvim"
 	-- Completion LSP
@@ -35,6 +39,8 @@ local plugin_setup = function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Transparent Background
+	use 'tribela/vim-transparent'
 	-- Discord Rich Presence
 	use {
 		'andweeb/presence.nvim',
