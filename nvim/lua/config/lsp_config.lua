@@ -1,3 +1,6 @@
+local ok1,cmp = pcall(require,'cmp')
+if not ok1 then return end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -30,9 +33,7 @@ local on_attach = function(_, bufnr)
 
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local cmp = require'cmp'
+-- Use a loop to conveniently call 'setup' on multiple servers and map buffer local keybindings when the language server attaches
 
 local kind_icons = {
 	Text = "",
@@ -73,6 +74,20 @@ snippet = {
   end,
 },
 mapping = {
+	["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
 	['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 	['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 	['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -81,8 +96,6 @@ mapping = {
 	i = cmp.mapping.abort(),
 	c = cmp.mapping.close(),
 	}),
-	["<Tab>"] = cmp.mapping.select_next_item(),
-	["<S-Tab>"] = cmp.mapping.select_prev_item(),
 	['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 },
 formatting = {
@@ -183,3 +196,15 @@ for k,v in pairs(LSP) do
 	}
 	lspconfig[k].setup(v)
 end
+
+-- icon
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    -- This sets the spacing and the prefix, obviously.
+    virtual_text = {
+      spacing = 2,
+      prefix = '●'
+    }
+  }
+)
