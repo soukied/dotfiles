@@ -8,7 +8,6 @@ vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<C
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
@@ -90,7 +89,13 @@ mapping = {
     end, { "i", "s" }),
 	['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 	['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-	['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+	['<C-Space>'] = cmp.mapping(function(fallback)
+		if not cmp.visible() then
+			cmp.complete()
+		else
+			cmp.close()
+		end
+	end, { 'i', 'c' }),
 	['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 	['<C-e>'] = cmp.mapping({
 	i = cmp.mapping.abort(),
