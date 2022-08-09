@@ -13,3 +13,4 @@ keymap("n", "<leader>n",":bn<cr>")
 keymap("n", "<leader>p",":bp<cr>")
 
 keymap("n", "<C-T>", ":NERDTreeToggle<cr>")
+keymap("n", "<leader>ff", ":Telescope find_files<cr>")

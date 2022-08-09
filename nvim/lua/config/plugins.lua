@@ -12,6 +12,11 @@ local function call_plugin(use)
 	use 'hrsh7th/vim-vsnip'
 	-- LSPSaga
 	use 'glepnir/lspsaga.nvim'
+	use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	-- or                            , branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+	}
 	-- Startify
 	use 'mhinz/vim-startify'
 	-- NERDTree
