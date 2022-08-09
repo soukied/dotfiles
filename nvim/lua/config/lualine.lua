@@ -85,6 +85,10 @@ ins_left {
 }
 
 ins_right {
+	'progress'
+}
+
+ins_right {
 	'location'
 }
 
