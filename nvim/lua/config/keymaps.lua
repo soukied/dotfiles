@@ -6,11 +6,11 @@ vim.g.mapleader = " "
 keymap({"i", "v"}, "<C-J>" , "<Esc>")
 keymap({"i", "v"}, "<C-K>" , "<Esc>")
 
-keymap("v", "<Tab>", ">gv")
-keymap("v", "<S-Tab>", "<gv")
-
 keymap("n", "<leader>n",":bn<cr>")
 keymap("n", "<leader>p",":bp<cr>")
 
 keymap("n", "<C-T>", ":NERDTreeToggle<cr>")
 keymap("n", "<leader>ff", ":Telescope find_files<cr>")
+
+keymap("v", "<Tab>", ">gv")
+keymap("v", "<S-Tab>", "<gv")
