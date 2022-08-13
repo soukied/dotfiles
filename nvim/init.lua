@@ -1,7 +1,7 @@
 require 'config.plugins'
 require 'config.options'
 require 'config.keymaps'
-require 'config.lualine'
+-- require 'config.lualine'
 require 'config.treesitter'
 require 'config.lsp_config'
 require 'config.startify'

@@ -13,12 +13,13 @@ local options = {
 	showmode=false,
 	splitbelow = true,
 	splitright = true,
-	hidden = true
+	hidden = true,
+	termguicolors = true
 }
 
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme codedark"
+vim.cmd "colorscheme nord"
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
 if ap_loaded then ap.setup() end

@@ -10,6 +10,10 @@ local function call_plugin(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Gitgutter
+	use 'airblade/vim-gitgutter'
+	-- NERD Commenter
+	use 'preservim/nerdcommenter'
 	-- LSPSaga
 	use 'glepnir/lspsaga.nvim'
 	use {
@@ -29,10 +33,12 @@ local function call_plugin(use)
 	use "ryanoasis/vim-devicons"
 	-- Emmet
 	use 'mattn/emmet-vim'
-	-- Buftabline
-	use 'pacha/vem-tabline'
 	-- VSCode Dark Theme
 	use 'tomasiser/vim-code-dark'
+	-- Gruvbox Color
+	use 'morhetz/gruvbox'
+	-- Onedark
+	use 'joshdick/onedark.vim'
 	-- Dracula Theme
 	use {"dracula/vim", as = "dracula"}
 	-- Polyglot
@@ -40,13 +46,17 @@ local function call_plugin(use)
 	-- Lua line
 	use {
 	  'nvim-lualine/lualine.nvim',
-	  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	  requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+	  config = function() require('lualine').setup() end
 	}
+	-- Tabline
+	use {'kdheepak/tabline.nvim',config = function() require('tabline').setup() end}
+	-- Nord Theme
+	use 'arcticicestudio/nord-vim'
   if packer_bootstrap then
     require('packer').sync()
   end
 end
-
 
 local loaded, packer = pcall(require, 'packer')
 if not loaded then

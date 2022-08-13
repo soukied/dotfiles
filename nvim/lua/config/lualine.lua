@@ -81,7 +81,9 @@ ins_left {
 ins_left { function() return "--" end, color = { gui = "bold"}, padding ={right = 1, left = 0}}
 
 ins_left {
-  "filename"
+  "filename",
+  file_status = true,
+  path = 0
 }
 
 ins_right {

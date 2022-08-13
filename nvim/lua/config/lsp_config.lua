@@ -170,7 +170,9 @@ local LSP = {
 	["rust_analyzer"] = {
 		root_dir = root_pattern("Cargo.toml", "rust-project.json")
 	},
-	['bashls'] = {},
+	['bashls'] = {
+		single_file_support = true
+	},
 	['haxe_language_server'] = {
 		cmd = {'node', '/home/soukied/compiled_programs/haxe-language-server/bin/server.js'},
 		root_dir = root_pattern("*.hxml")
@@ -190,7 +192,15 @@ local LSP = {
 	["jsonls"] = {},
 	["cssls"] = {},
 	["html"] = {},
-	["sumneko_lua"] = {}
+	["sumneko_lua"] = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = {'vim'}
+				}
+			}
+		}
+	}
 }
 
 for k,v in pairs(LSP) do
