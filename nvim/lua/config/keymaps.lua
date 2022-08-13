@@ -12,6 +12,6 @@ keymap("v", "<S-Tab>", "<gv")
 keymap("n", "<leader>n",":bn<cr>")
 keymap("n", "<leader>p",":bp<cr>")
 
-keymap("n", "<C-T>", ":NERDTreeToggle<cr>")
+keymap("n", "<C-T>", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>ff", ":Telescope find_files<cr>")
 rekeymap("v", "<leader>/", "<leader>c<space>")

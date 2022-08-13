@@ -10,8 +10,10 @@ local function call_plugin(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
-	-- Gitgutter
-	use 'airblade/vim-gitgutter'
+	-- Floaterm
+	use 'voldikss/vim-floaterm'
+	-- Gitsigns
+	use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end}
 	-- NERD Commenter
 	use 'preservim/nerdcommenter'
 	-- LSPSaga
@@ -23,8 +25,6 @@ local function call_plugin(use)
 	}
 	-- Startify
 	use 'mhinz/vim-startify'
-	-- NERDTree
-	use 'preservim/nerdtree'
 	-- nvim tree
 	use {'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end}
 	-- Auto pairs

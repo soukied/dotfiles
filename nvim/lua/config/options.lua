@@ -14,12 +14,14 @@ local options = {
 	splitbelow = true,
 	splitright = true,
 	hidden = true,
-	termguicolors = true
+	termguicolors = true,
+	background = 'dark'
 }
 
 vim.cmd[[
       set guioptions-=e " Use showtabline in gui vim
       set sessionoptions+=tabpages,globals " store tabpages and globals in session
+	  set t_Co=256
     ]]
 
 vim.g.user_emmet_leader_key = '<C-P>'
@@ -43,3 +45,9 @@ vim.cmd [[
 autocmd InsertEnter * set nornu
 autocmd InsertLeave * set rnu
 ]]
+
+vim.g.floaterm_keymap_new    = '<F7>'
+vim.g.floaterm_keymap_prev   = '<F8>'
+vim.g.floaterm_keymap_next   = '<F9>'
+vim.g.floaterm_keymap_toggle = '<F12>'
+vim.g.floaterm_keymap_kill = '<C-q>'
