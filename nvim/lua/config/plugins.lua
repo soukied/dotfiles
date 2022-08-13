@@ -25,6 +25,8 @@ local function call_plugin(use)
 	use 'mhinz/vim-startify'
 	-- NERDTree
 	use 'preservim/nerdtree'
+	-- nvim tree
+	use {'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end}
 	-- Auto pairs
 	use "windwp/nvim-autopairs"
 	-- Treesitter

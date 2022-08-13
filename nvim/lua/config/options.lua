@@ -17,6 +17,11 @@ local options = {
 	termguicolors = true
 }
 
+vim.cmd[[
+      set guioptions-=e " Use showtabline in gui vim
+      set sessionoptions+=tabpages,globals " store tabpages and globals in session
+    ]]
+
 vim.g.user_emmet_leader_key = '<C-P>'
 
 vim.cmd "colorscheme nord"
