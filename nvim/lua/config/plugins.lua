@@ -39,6 +39,8 @@ local function call_plugin(use)
 	use 'tomasiser/vim-code-dark'
 	-- Gruvbox Color
 	use 'morhetz/gruvbox'
+	-- Solarized
+	use 'overcache/NeoSolarized'
 	-- Onedark
 	use 'joshdick/onedark.vim'
 	-- Dracula Theme
@@ -52,7 +54,7 @@ local function call_plugin(use)
 	  config = function() require('lualine').setup() end
 	}
 	-- Tabline
-	use {'kdheepak/tabline.nvim',config = function() require('tabline').setup() end}
+	use {'kdheepak/tabline.nvim',config = function() require('tabline').setup {enable=true, options={modified_icon = "● ", modified_italic=false}} end}
 	-- Nord Theme
 	use 'arcticicestudio/nord-vim'
   if packer_bootstrap then

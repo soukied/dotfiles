@@ -12,3 +12,6 @@ export DENO_INSTALL="/home/soukied/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export DVM_DIR="/home/soukied/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
+
+eval "$(rbenv init - bash)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

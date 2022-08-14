@@ -15,3 +15,8 @@ keymap("n", "<leader>p",":bp<cr>")
 keymap("n", "<C-T>", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>ff", ":Telescope find_files<cr>")
 rekeymap("v", "<leader>/", "<leader>c<space>")
+
+-- Terminal Escape
+rekeymap('t', '<C-j>', '<C-\\><C-n>')
+rekeymap('t', '<C-k>', '<C-\\><C-n>')
+rekeymap('t', '<Escape>', '<C-\\><C-n>')

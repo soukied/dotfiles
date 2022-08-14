@@ -4,7 +4,6 @@ local options = {
 	shiftwidth=4,
 	autoindent=true,
 	smartindent=true,
-	cursorline=true,
 	number=true,
 	relativenumber=true,
 	backup = false,
@@ -15,18 +14,19 @@ local options = {
 	splitright = true,
 	hidden = true,
 	termguicolors = true,
-	background = 'dark'
+	background = 'dark',
+	mouse = 'a'
 }
 
 vim.cmd[[
       set guioptions-=e " Use showtabline in gui vim
       set sessionoptions+=tabpages,globals " store tabpages and globals in session
-	  set t_Co=256
     ]]
 
+vim.cmd [[autocmd TermOpen * setlocal nonu nornu nocursorline]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme nord"
+vim.cmd "colorscheme gruvbox"
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
 if ap_loaded then ap.setup() end
