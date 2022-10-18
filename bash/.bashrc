@@ -23,8 +23,12 @@ export NVM_DIR="$HOME/.nvm"
 
 alias py="python"
 alias cat="bat"
+alias ll="exa -l"
+alias docker='sudo docker'
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 eval "$(starship init bash)"
+
+pfetch

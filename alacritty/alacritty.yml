@@ -34,6 +34,7 @@ env:
 # References:
 #   https://github.com/alacritty/alacritty
 
+# Colors (Gruvbox Material Dark Medium)
 colors:
   primary:
     background: '0x282828'

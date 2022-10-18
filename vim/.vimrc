@@ -1,96 +1,90 @@
 set nocompatible
 
 call plug#begin()
-Plug 'morhetz/gruvbox'
-Plug 'cohama/lexima.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'joshdick/onedark.vim'
+
 Plug 'ryanoasis/vim-devicons'
-Plug 'mattn/emmet-vim'
-Plug 'itchyny/lightline.vim'
-Plug 'preservim/nerdtree'
+Plug 'cohama/lexima.vim'
+Plug 'sainnhe/gruvbox-material', { 'as' : 'gruvboxmaterial' }
+Plug 'vim-airline/vim-airline'
+Plug 'morhetz/gruvbox'
+" Plug 'itchyny/lightline.vim'
+Plug 'dracula/vim', {'as':'dracula'}
 Plug 'sheerun/vim-polyglot'
-Plug 'vimsence/vimsence'
-Plug 'preservim/nerdcommenter'
-" Plug 'mhinz/vim-startify'
-Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 filetype plugin indent on
 syntax on
 
-autocmd VimEnter * :NoMatchParen
-
+set tabstop=4 shiftwidth=4 softtabstop=4
 set nu rnu
 set smartindent autoindent
-set tabstop=4 softtabstop=4 shiftwidth=4
-set noundofile noswapfile nobackup
-set backspace=indent,eol,start
-set wildmenu
-set noshowmode
-set hidden
-set splitright splitbelow
+set nobackup noswapfile
+set backspace=indent,start,eol
 set laststatus=2
+set nu rnu
+set hlsearch
+set incsearch
+set wildmenu
 set cursorline
-set encoding=utf-8 fileencoding=utf-8
+set mouse=a
+set shortmess-=S
+set termguicolors
+set hidden
+set fileencoding=utf-8 encoding=utf-8
+set splitbelow
+set splitright
 set ttimeoutlen=50
+set bg=dark
+set noshowmode
 
-colorscheme codedark
+colorscheme gruvbox-material
 
-if has("gui_running")
-	set guifont=FiraCode\ Nerd\ Font\ 12
-endif
+" Emmet configuration
+let g:user_emmet_leader_key = '<C-p>'
 
-let g:user_emmet_leader_key='<C-P>'
-let mapleader = " "
-let g:lightline = {
-	\ 'colorscheme':'codedark',
-	\ 'enable' : {
-		\ 'tabline' : 1,
-		\ }
-	\ }
-
-let g:lightline.tabline = {
-	\ 'left': [ [ 'tabs' ] ],
-	\ 'right': [ [ 'close' ] ] }
-
-
+let NERDTreeShowHidden=1
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
-set bg=dark
 
-execute "set <M-j>=\ej"
-execute "set <M-h>=\eh"
-execute "set <M-l>=\el"
-execute "set <M-k>=\ek"
+execute "set <M-h>=è"
+execute "set <M-j>=ê"
+execute "set <M-k>=ë"
+execute "set <M-l>=ì"
 
-inoremap <silent> <M-h> <Esc>h
-inoremap <silent> <M-j> <Esc>j
-inoremap <silent> <M-k> <Esc>k
-inoremap <silent> <M-l> <Esc>l
+" Escape switching
+inoremap <silent> <C-J> <Esc>
+inoremap <silent> <C-K> <Esc>
+vnoremap <silent> <C-J> <Esc>
+vnoremap <silent> <C-K> <Esc>
+inoremap <silent> <M-K> <Esc>k
+inoremap <silent> <M-J> <Esc>j
+inoremap <silent> <M-K> <Esc>k
+inoremap <silent> <M-L> <Esc>l
 
-nnoremap <silent> <M-h> h
-nnoremap <silent> <M-j> j
-nnoremap <silent> <M-k> k
-nnoremap <silent> <M-l> l
+" Exit terminal mode
+tnoremap <silent> <Esc> <C-\><C-n>
+tnoremap <silent> <C-j> <C-\><C-n>
+tnoremap <silent> <C-k> <C-\><C-n>
 
-vmap <silent> <leader>/ <leader>c<space>
-
+" Tab indent on visual
 vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
 
-nnoremap <silent> <leader>n :bn<cr>
-nnoremap <silent> <leader>p :bp<cr>
-nnoremap <silent> <C-T> :NERDTreeToggle<cr>
-nnoremap <silent> <C-P> :FZF<cr>
-inoremap <silent> <C-J> <Esc>
-xnoremap <silent> <C-J> <Esc>
-vnoremap <silent> <C-J> <Esc>
-cnoremap <silent> <C-J> <Esc>
-inoremap <silent> <C-K> <Esc>
-xnoremap <silent> <C-K> <Esc>
-vnoremap <silent> <C-K> <Esc>
-cnoremap <silent> <C-K> <Esc>
+nnoremap <silent> <C-T> :NERDTreeToggle<CR>
+
+
+" Augroup
+
+augroup terminal_mode
+	au!
+	au TerminalOpen * setlocal nocursorline nonu nornu
+augroup END
+
+augroup aksdjalkjsdlakjsd
+	au!
+	au FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END

@@ -1,7 +1,8 @@
+local tabs = 4
 local options = {
-	softtabstop = 4,
-	tabstop=4,
-	shiftwidth=4,
+	softtabstop =tabs,
+	tabstop=tabs,
+	shiftwidth=tabs,
 	autoindent=true,
 	smartindent=true,
 	number=true,
@@ -15,18 +16,29 @@ local options = {
 	hidden = true,
 	termguicolors = true,
 	background = 'dark',
+	cursorline = true,
 	mouse = 'a'
 }
 
-vim.cmd[[
-      set guioptions-=e " Use showtabline in gui vim
-      set sessionoptions+=tabpages,globals " store tabpages and globals in session
-    ]]
+local html = vim.api.nvim_create_augroup("html_tab", {clear=true})
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = html,
+	pattern = {"*.html"},
+	command = "setlocal tabstop=2 softtabstop=2 shiftwidth=2"
+})
 
-vim.cmd [[autocmd TermOpen * setlocal nonu nornu nocursorline]]
+vim.cmd[[
+	set guioptions-=e " Use showtabline in gui vim
+	set sessionoptions+=tabpages,globals " store tabpages and globals in session
+	let NERDTreeShowHidden=1
+]]
+
+vim.cmd [[
+	autocmd TermOpen * setlocal nonu nornu nocursorline
+]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme gruvbox"
+vim.cmd "colorscheme gruvbox-material"
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
 if ap_loaded then ap.setup() end
@@ -42,8 +54,11 @@ for type, icon in pairs(signs) do
 end
 
 vim.cmd [[
-autocmd InsertEnter * set nornu
-autocmd InsertLeave * set rnu
+augroup normal_rnu
+	autocmd!
+	autocmd InsertEnter * setlocal nornu
+	autocmd InsertLeave * setlocal rnu
+augroup END
 ]]
 
 vim.g.floaterm_keymap_new    = '<F7>'
