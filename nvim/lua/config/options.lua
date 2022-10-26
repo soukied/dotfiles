@@ -38,7 +38,7 @@ vim.cmd [[
 ]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme gruvbox-material"
+vim.cmd "colorscheme catppuccin_macchiato"
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
 if ap_loaded then ap.setup() end

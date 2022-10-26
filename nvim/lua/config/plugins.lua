@@ -76,6 +76,8 @@ local function call_plugin(use)
 	use 'joshdick/onedark.vim'
 	-- Dracula Theme
 	use {"dracula/vim", as = "dracula"}
+	-- Catppuccin
+	use {"catppuccin/vim"}
 	-- Polyglot
 	use 'sheerun/vim-polyglot'
 	-- Lua line
