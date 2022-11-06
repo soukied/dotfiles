@@ -2,16 +2,20 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'tribela/vim-transparent'
 Plug 'ryanoasis/vim-devicons'
 Plug 'cohama/lexima.vim'
 Plug 'sainnhe/gruvbox-material', { 'as' : 'gruvboxmaterial' }
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'sheerun/vim-polyglot'
+Plug 'catppuccin/vim', {'as' : 'catppuccin'}
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -40,9 +44,13 @@ set ttimeoutlen=50
 set bg=dark
 set noshowmode
 
-colorscheme gruvbox-material
+colorscheme catppuccin_macchiato
 
 " Emmet configuration
+let g:lightline = {
+			\ "colorscheme": "dracula"
+			\}
+let g:airline_theme="dracula"
 let g:user_emmet_leader_key = '<C-p>'
 
 let NERDTreeShowHidden=1
@@ -75,13 +83,20 @@ vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
 
 nnoremap <silent> <C-T> :NERDTreeToggle<CR>
+nnoremap <silent> q: <nop>
 
+nnoremap <silent> <F4> :Goyo<cr>
 
 " Augroup
 
 augroup terminal_mode
 	au!
 	au TerminalOpen * setlocal nocursorline nonu nornu
+augroup END
+
+augroup txt_spellcheking
+	au!
+	au FileType text setlocal spell spelllang=en_us
 augroup END
 
 augroup aksdjalkjsdlakjsd

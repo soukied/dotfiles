@@ -25,6 +25,7 @@ alias py="python"
 alias cat="bat"
 alias ll="exa -l"
 alias docker='sudo docker'
+alias neofetch="hyfetch"
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"

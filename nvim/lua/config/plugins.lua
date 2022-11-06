@@ -1,6 +1,5 @@
 local function call_plugin(use)
-	-- Plugin Manager
-	use "wbthomason/packer.nvim"
+	-- Plugin Manager use "wbthomason/packer.nvim"
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -10,8 +9,12 @@ local function call_plugin(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Goyo mode
+	use 'junegunn/goyo.vim'
 	-- Floaterm
 	use 'voldikss/vim-floaterm'
+	-- Transparent
+	use "tribela/vim-transparent"
 	-- Gitsigns
 	use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end}
 	-- Discord Presence
