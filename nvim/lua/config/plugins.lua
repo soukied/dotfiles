@@ -1,5 +1,6 @@
-local function call_plugin(use)
-	-- Plugin Manager use "wbthomason/packer.nvim"
+ local function call_plugin(use)
+	-- Plugin Manager
+	use "wbthomason/packer.nvim"
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -14,7 +15,7 @@ local function call_plugin(use)
 	-- Floaterm
 	use 'voldikss/vim-floaterm'
 	-- Transparent
-	use "tribela/vim-transparent"
+	-- use "tribela/vim-transparent"
 	-- Gitsigns
 	use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end}
 	-- Discord Presence
@@ -42,9 +43,9 @@ local function call_plugin(use)
 		})
 	end
 	}
-	-- Dashbord
-	use  {'glepnir/dashboard-nvim'
-	}
+	-- Dashbord / Startify
+	-- use  {'glepnir/dashboard-nvim' }
+	use { 'mhinz/vim-startify' }
 	-- NERD Commenter
 	use 'preservim/nerdcommenter'
 	-- LSPSaga
@@ -59,7 +60,8 @@ local function call_plugin(use)
 	-- NerdTree
 	-- use 'preservim/nerdtree'
 	-- Auto pairs
-	use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
+	-- use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
+	use "cohama/lexima.vim"
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 	-- Devicons

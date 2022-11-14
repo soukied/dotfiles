@@ -2,7 +2,8 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'tribela/vim-transparent'
+Plug 'joshdick/onedark.vim'
+" Plug 'tribela/vim-transparent'
 Plug 'ryanoasis/vim-devicons'
 Plug 'cohama/lexima.vim'
 Plug 'sainnhe/gruvbox-material', { 'as' : 'gruvboxmaterial' }
@@ -28,6 +29,7 @@ set smartindent autoindent
 set nobackup noswapfile
 set backspace=indent,start,eol
 set laststatus=2
+set encoding=utf-8 fileencoding=utf-8 fileencodings=utf-8
 set nu rnu
 set hlsearch
 set incsearch
@@ -44,14 +46,20 @@ set ttimeoutlen=50
 set bg=dark
 set noshowmode
 
-colorscheme catppuccin_macchiato
+colorscheme onedark
+
+set guifont=Monospace\ 12
 
 " Emmet configuration
 let g:lightline = {
-			\ "colorscheme": "dracula"
+			\ "colorscheme": "onedark",
+			\ 'separator': { 'left': "", 'right': "" },
+			\ 'subseparator': { 'left': "", 'right': "" },
 			\}
 let g:airline_theme="dracula"
 let g:user_emmet_leader_key = '<C-p>'
+
+let mapleader=" "
 
 let NERDTreeShowHidden=1
 let &t_SI = "\<Esc>[6 q"
@@ -82,7 +90,7 @@ tnoremap <silent> <C-k> <C-\><C-n>
 vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
 
-nnoremap <silent> <C-T> :NERDTreeToggle<CR>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> q: <nop>
 
 nnoremap <silent> <F4> :Goyo<cr>

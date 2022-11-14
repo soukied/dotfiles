@@ -5,31 +5,28 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='exa --color=auto'
-export PS1='[\u@\h \W]\$ '
+source /usr/share/nvm/init-nvm.sh
 
-export PATH="$HOME/flutter/bin:$HOME/.local/bin:$HOME/.pyenv/bin/:$PATH"
-export CHROME_EXECUTABLE='brave'
+export CHROME_EXECUTABLE="/usr/bin/brave"
+export PATH="$PATH:/home/soukied/.flutter/bin"
+
+export DENO_INSTALL="/home/soukied/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 export TERM=xterm-256color
 
-export EDITOR="nvim"
-BUN_INSTALL="/home/soukied/.bun"
-PATH="$BUN_INSTALL/bin:$PATH"
+export EDITOR="vim"
+export VISUAL="vim"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
-alias py="python"
-alias cat="bat"
-alias ll="exa -l"
-alias docker='sudo docker'
-alias neofetch="hyfetch"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+alias ls='exa --color=auto'
+PS1=' \[\e[0;1;36m\]\W \[\e[0m\]) \[\e[0m\]'
 
-eval "$(starship init bash)"
+eval "$(pyenv init -)"
 
-pfetch
+alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
