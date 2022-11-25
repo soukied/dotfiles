@@ -1,3 +1,5 @@
+local eval = vim.api.nvim_eval
+
 local tabs = 4
 local options = {
 	softtabstop =tabs,
@@ -17,8 +19,10 @@ local options = {
 	termguicolors = true,
 	background = 'dark',
 	cursorline = true,
-	mouse = 'a'
+	mouse = 'a',
+	guifont = "FiraCode Nerd Font:h9"
 }
+
 
 local html = vim.api.nvim_create_augroup("html_tab", {clear=true})
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -38,7 +42,13 @@ vim.cmd [[
 ]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme onedark"
+vim.cmd "colorscheme catppuccin_frappe"
+
+vim.cmd[[
+if exists("g:neovide")
+	colorscheme gruvbox-material
+endif
+]]
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
 if ap_loaded then ap.setup() end
@@ -53,11 +63,22 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+vim.g.user_emmet_install_global = 0
 vim.cmd [[
 augroup normal_rnu
 	autocmd!
 	autocmd InsertEnter * setlocal nornu
 	autocmd InsertLeave * setlocal rnu
+augroup END
+
+augroup emmet_filetype
+	au!
+	au FileType html,css,tsx,jsx EmmetInstall
+augroup END
+
+augroup tscopeprompt_setting
+	au!
+	au FileType TelescopePrompt setlocal nonu nornu
 augroup END
 ]]
 

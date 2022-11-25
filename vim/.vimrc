@@ -3,6 +3,7 @@ set nocompatible
 call plug#begin()
 
 Plug 'joshdick/onedark.vim'
+Plug 'vimwiki/vimwiki'
 " Plug 'tribela/vim-transparent'
 Plug 'ryanoasis/vim-devicons'
 Plug 'cohama/lexima.vim'
@@ -29,7 +30,7 @@ set smartindent autoindent
 set nobackup noswapfile
 set backspace=indent,start,eol
 set laststatus=2
-set encoding=utf-8 fileencoding=utf-8 fileencodings=utf-8
+set encoding=utf-8
 set nu rnu
 set hlsearch
 set incsearch
@@ -46,13 +47,13 @@ set ttimeoutlen=50
 set bg=dark
 set noshowmode
 
-colorscheme onedark
+colorscheme catppuccin_frappe
 
 set guifont=Monospace\ 12
 
 " Emmet configuration
 let g:lightline = {
-			\ "colorscheme": "onedark",
+			\ 'colorscheme': 'dracula',
 			\ 'separator': { 'left': "", 'right': "" },
 			\ 'subseparator': { 'left': "", 'right': "" },
 			\}
@@ -97,6 +98,14 @@ nnoremap <silent> <F4> :Goyo<cr>
 
 " Augroup
 
+let g:user_emmet_install_global = 0
+let g:lexima_disable_on_nofile = 1
+
+augroup emmet_html
+	au!
+	au FileType html,css EmmetInstall
+augroup END
+
 augroup terminal_mode
 	au!
 	au TerminalOpen * setlocal nocursorline nonu nornu
@@ -107,7 +116,7 @@ augroup txt_spellcheking
 	au FileType text setlocal spell spelllang=en_us
 augroup END
 
-augroup aksdjalkjsdlakjsd
+augroup html_tabsize
 	au!
 	au FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
