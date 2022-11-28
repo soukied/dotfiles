@@ -6,6 +6,9 @@ vim.g.mapleader = " "
 keymap({"i", "v", "n"}, "<C-J>" , "<Esc>")
 keymap({"i", "v", "n"}, "<C-K>" , "<Esc>")
 
+keymap("i", "<C-e>", "<Esc>A")
+keymap("i", "<C-a>", "<Esc>I")
+
 keymap("v", "<Tab>", ">gv")
 keymap("v", "<S-Tab>", "<gv")
 
