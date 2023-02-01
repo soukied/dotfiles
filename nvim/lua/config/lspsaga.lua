@@ -1,7 +1,7 @@
 local loaded, saga = pcall(require, "lspsaga")
 if not loaded then return end
 
-saga.init_lsp_saga({
+saga.setup({
 	-- Options with default value
 	-- "single" | "double" | "rounded" | "bold" | "plus"
 	border_style = "single",

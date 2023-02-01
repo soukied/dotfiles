@@ -10,8 +10,24 @@
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
+	-- Monokai
+	use 'sickill/vim-monokai'
 	-- Goyo mode
 	use 'junegunn/goyo.vim'
+	-- ChatGPT
+	use({
+	  "jackMort/ChatGPT.nvim",
+		config = function()
+		  require("chatgpt").setup({
+			-- optional configuration
+		  })
+		end,
+		requires = {
+		  "MunifTanjim/nui.nvim",
+		  "nvim-lua/plenary.nvim",
+		  "nvim-telescope/telescope.nvim"
+		}
+	})
 	-- Floaterm
 	use 'voldikss/vim-floaterm'
 	-- Transparent
