@@ -12,7 +12,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PYENV_PATH="/home/soukied/.pyenv/bin"
 export PATH="$PYENV_PATH:$PATH"
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY="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"
 
 export NVM_DIR="$HOME/.nvm"
 

@@ -15,6 +15,7 @@
 	-- Goyo mode
 	use 'junegunn/goyo.vim'
 	-- ChatGPT
+	-- Packer
 	use({
 	  "jackMort/ChatGPT.nvim",
 		config = function()

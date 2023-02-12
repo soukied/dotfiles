@@ -1,5 +1,3 @@
-local eval = vim.api.nvim_eval
-
 local tabs = 4
 local options = {
 	softtabstop =tabs,
@@ -42,7 +40,7 @@ vim.cmd [[
 ]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme catppuccin_frappe"
+vim.cmd "colorscheme gruvbox-material"
 
 vim.cmd[[
 if exists("g:neovide")
