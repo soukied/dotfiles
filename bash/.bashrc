@@ -5,34 +5,20 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+alias ls='exa'
+alias ll='exa -l'
+alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
+source /usr/share/nvm/init-nvm.sh
 
-export EDITOR="nvim"
-export VISUAL="nvim"
-export PYENV_PATH="/home/soukied/.pyenv/bin"
-export PATH="$PYENV_PATH:$PATH"
-export OPENAI_API_KEY="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"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
+alias idf="idf.py"
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-
-alias looking-glass="looking-glass-client -s -F"
-alias ll="exa -l"
-alias ls="exa"
-
-alias sudo="sudo -E"
-eval "$(pyenv virtualenv-init -)"
-
-alias boot-normal="sudo cp -f /etc/default/grub.normal /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg && reboot"
-alias boot-vfio="sudo cp -f /etc/default/grub.vfio /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg && reboot"
-
-export PS1=' \[\e[0;1;36m\]\W \[\e[0;1m\]) \[\e[0m\]'
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	printf ""
+else
+  export PS1=' \[\e[0;1;36m\] \[\e[0;36m\] \[\e[0;30;46m\]\u\[\e[0;30;46m\]@\[\e[0;30;46m\]\h\[\e[0;36;103m\] \[\e[0;1;7;93m\]\W\[\e[0;103m\] \[\e[0;93m\] \[\e[0m\]'
+fi
