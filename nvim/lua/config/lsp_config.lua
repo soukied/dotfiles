@@ -1,6 +1,5 @@
 local ok1,cmp = pcall(require,'cmp')
 if not ok1 then return end
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }

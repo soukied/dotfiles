@@ -1,30 +1,26 @@
- local function call_plugin(use)
-	-- Plugin Manager
-	use "wbthomason/packer.nvim"
-	-- LSP
-	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/cmp-buffer'
-	use 'hrsh7th/cmp-path'
-	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
-	use 'hrsh7th/cmp-vsnip'
-	use 'hrsh7th/vim-vsnip'
-	-- Monokai
-	use 'sickill/vim-monokai'
+ local plug_opts = {
+	'neovim/nvim-lspconfig',
+	'hrsh7th/cmp-nvim-lsp',
+	'hrsh7th/cmp-buffer',
+	'hrsh7th/cmp-path',
+	'hrsh7th/cmp-cmdline',
+	'hrsh7th/nvim-cmp',
+	'hrsh7th/cmp-vsnip',
+	'hrsh7th/vim-vsnip',
+	-- Monokai,
+	'sickill/vim-monokai',
 	-- Goyo mode
-	use 'junegunn/goyo.vim'
+	'junegunn/goyo.vim',
 	-- ChatGPT
 	-- Packer
 	-- Floaterm
-	use 'voldikss/vim-floaterm'
+	'voldikss/vim-floaterm',
 	-- Transparent
-	-- use "tribela/vim-transparent"
+	-- "tribela/vim-transparent"
 	-- Gitsigns
-	use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end}
+	{'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end},
 	-- Discord Presence
-	use {
-	'andweeb/presence.nvim',
+	{ 'andweeb/presence.nvim',
 	config = function()
 		require("presence"):setup({
 			auto_update         = true,
@@ -46,72 +42,75 @@
 			line_number_text    = "Line %s out of %s",
 		})
 	end
-	}
+	},
 	-- Dashbord / Startify
-	-- use  {'glepnir/dashboard-nvim' }
-	use { 'mhinz/vim-startify' }
+	--  {'glepnir/dashboard-nvim' }
+	'mhinz/vim-startify',
 	-- NERD Commenter
-	use 'preservim/nerdcommenter'
+	'preservim/nerdcommenter',
 	-- LSPSaga
-	use 'glepnir/lspsaga.nvim'
-	use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	'glepnir/lspsaga.nvim',
+	{ 'nvim-telescope/telescope.nvim', tag = '0.1.0',
 	-- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	  dependencies =  {'nvim-lua/plenary.nvim'}
+	},
 	-- nvim tree
-	use {'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end}
+	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
 	-- NerdTree
-	-- use 'preservim/nerdtree'
+	-- 'preservim/nerdtree'
 	-- Auto pairs
-	-- use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
-	use "cohama/lexima.vim"
+	-- {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
+	"cohama/lexima.vim",
 	-- Treesitter
-	use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
+	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Devicons
-	use "ryanoasis/vim-devicons"
+	"ryanoasis/vim-devicons",
 	-- Emmet
-	use 'mattn/emmet-vim'
+	'mattn/emmet-vim',
 	-- VSCode Dark Theme
-	use 'tomasiser/vim-code-dark'
+	'tomasiser/vim-code-dark',
 	-- Everforest
-	use 'sainnhe/everforest'
+	'sainnhe/everforest',
 	-- Gruvbox Color
-	use 'sainnhe/gruvbox-material'
-	use 'morhetz/gruvbox'
+	'sainnhe/gruvbox-material',
+	'morhetz/gruvbox',
 	-- Solarized
-	use 'overcache/NeoSolarized'
+	'overcache/NeoSolarized',
 	-- Onedark
-	use 'joshdick/onedark.vim'
+	'joshdick/onedark.vim',
 	-- Dracula Theme
-	use {"dracula/vim", as = "dracula"}
+	{"dracula/vim", name = "dracula"},
 	-- Catppuccin
-	use {"catppuccin/vim"}
+	{"catppuccin/vim"},
 	-- Polyglot
-	use 'sheerun/vim-polyglot'
+	'sheerun/vim-polyglot',
 	-- Lua line
-	use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+	{ 'nvim-lualine/lualine.nvim',
+	  dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
 	  config = function() require('lualine').setup(); end
-	}
+	},
 	-- Tabline
-	use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons', config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end}
+	{'akinsho/bufferline.nvim', tag = "v3.6.0", dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
 	-- Nord Theme
-	use 'arcticicestudio/nord-vim'
+	'arcticicestudio/nord-vim'
+}
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local loaded, packer = pcall(require, 'packer')
+local loaded, lazy = pcall(require, 'lazy')
 if not loaded then
 	vim.notify("Packer is not installed")
 	return
 end
 
-packer.startup({
-	call_plugin,
-	config = {
-		display = {
-			open_fn = require('packer.util').float
-		}
-	}
-})
+lazy.setup(plug_opts)
