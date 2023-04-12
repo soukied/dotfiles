@@ -19,6 +19,25 @@
 	-- "tribela/vim-transparent"
 	-- Gitsigns
 	{'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end},
+	-- Dashboard
+	{
+	  'glepnir/dashboard-nvim',
+	  event = 'VimEnter',
+	  config = function()
+		require('dashboard').setup {
+		config = {
+			header = {
+				' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+				' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+				' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+				' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+				' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+				' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+			}
+}
+		}
+	  end
+	},
 	-- Discord Presence
 	{ 'andweeb/presence.nvim',
 	config = function()
@@ -45,7 +64,7 @@
 	},
 	-- Dashbord / Startify
 	--  {'glepnir/dashboard-nvim' }
-	'mhinz/vim-startify',
+	-- 'mhinz/vim-startify',
 	-- NERD Commenter
 	'preservim/nerdcommenter',
 	-- LSPSaga
@@ -94,6 +113,7 @@
 	-- Nord Theme
 	'arcticicestudio/nord-vim'
 }
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({

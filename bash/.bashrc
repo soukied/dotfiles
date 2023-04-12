@@ -1,7 +1,5 @@
 #
 # ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -9,6 +7,7 @@ alias ls='exa'
 alias ll='exa -l'
 alias grep='grep --color=auto'
 alias sudo="sudo -E"
+alias vim="nvim"
 PS1='[\u@\h \W]\$ '
 source /usr/share/nvm/init-nvm.sh
 
@@ -17,6 +16,7 @@ export PATH="/home/soukied/.haxe_lib/heaps/1,10,0/:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export VISUAL="nvim"
+
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
