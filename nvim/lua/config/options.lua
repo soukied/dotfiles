@@ -40,7 +40,7 @@ vim.cmd [[
 ]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme gruvbox-material"
+vim.cmd "colorscheme catppuccin_mocha"
 
 vim.cmd[[
 if exists("g:neovide")

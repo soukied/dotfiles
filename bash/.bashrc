@@ -13,9 +13,12 @@ source /usr/share/nvm/init-nvm.sh
 
 export PATH="/home/soukied/.haxe_lib/heaps/1,10,0/:$PATH"
 
+export TERM='xterm-256color'
 export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+export OPENAI_KEY="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"
 
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
