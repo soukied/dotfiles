@@ -89,8 +89,7 @@
 	-- NerdTree
 	-- 'preservim/nerdtree'
 	-- Auto pairs
-	-- {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end}
-	"cohama/lexima.vim",
+	{'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end},
 	-- Treesitter
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Devicons
