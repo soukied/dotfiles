@@ -40,12 +40,8 @@ vim.cmd [[
 ]]
 vim.g.user_emmet_leader_key = '<C-P>'
 
-vim.cmd "colorscheme catppuccin_mocha"
-
-vim.cmd[[
-if exists("g:neovide")
-	colorscheme gruvbox-material
-endif
+vim.cmd [[
+colorscheme codedark
 ]]
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")

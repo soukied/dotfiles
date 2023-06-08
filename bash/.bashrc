@@ -1,44 +1,42 @@
-#
-# ~/.bashrc
+# # ~/.bashrc #
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='exa'
-alias ll='exa -l'
+alias ls='exa' 
 alias grep='grep --color=auto'
-alias sudo="sudo -E"
-alias vim="nvim"
 PS1='[\u@\h \W]\$ '
+
+alias paru="paru --sudoloop --skipreview"
 source /usr/share/nvm/init-nvm.sh
 
-export PATH="/home/soukied/.haxe_lib/heaps/1,10,0/:$PATH"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator/
+export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/
+export PATH=$PATH:$HOME/.bun/.bin
 
-export TERM='xterm-256color'
+export PATH=$PATH:$HOME/.local/bin
+
 export PYENV_ROOT="$HOME/.pyenv"
-export EDITOR="nvim"
-export VISUAL="nvim"
-
-export OPENAI_KEY="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"
-
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-alias idf="idf.py"
+pfetch
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	printf ""
-else
-  export PS1=' \[\e[0;1;36m\] \[\e[0;36m\] \[\e[0;30;46m\]\u\[\e[0;30;46m\]@\[\e[0;30;46m\]\h\[\e[0;36;103m\] \[\e[0;1;7;93m\]\W\[\e[0;103m\] \[\e[0;93m\] \[\e[0m\]'
-fi
-
-boot-normal() {
-  sudo cp -f /etc/default/grub.old /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  sudo reboot
+grub-update() {
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
-boot-vfio() {
-  sudo cp -f /etc/default/grub.vfio /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  sudo reboot
+fetch-mirrors() {
+	sudo reflector --save /etc/pacman.d/mirrorlist --sort rate -f 5 -c Indonesia,Singapore,Japanese,Chinese --latest 5
 }
+
+reset-bash() {
+	source $HOME/.bashrc
+}
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

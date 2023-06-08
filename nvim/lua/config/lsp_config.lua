@@ -34,31 +34,31 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and map buffer local keybindings when the language server attaches
 
 local kind_icons = {
-	Text = "",
+	Text = "󰊄",
 	Method = "m",
-	Function = "",
+	Function = "󰊕",
 	Constructor = "",
 	Field = "",
-	Variable = "",
+	Variable = "",
 	Class = "",
 	Interface = "",
 	Module = "",
 	Property = "",
 	Unit = "",
-	Value = "",
+	Value = "",
 	Enum = "",
-	Keyword = "",
+	Keyword = "",
 	Snippet = "",
-	Color = "",
-	File = "",
+	Color = "",
+	File = "",
 	Reference = "",
-	Folder = "",
+	Folder = "",
 	EnumMember = "",
-	Constant = "",
+	Constant = "",
 	Struct = "",
 	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Operator = "",
+	TypeParameter = "󰉺",
 }
 
 cmp.setup({
@@ -164,6 +164,10 @@ local root_pattern = lspconfig.util.root_pattern
 local LSP = {
 	["tsserver"] = {
 		single_file_support = true
+	},
+	["gdscript"] = {
+		single_file_support = true,
+		filetypes = {"gd", "gdscript", "gdscript3"}
 	},
 	["clangd"] = {},
 	["dartls"] = {},
