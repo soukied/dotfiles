@@ -5,7 +5,7 @@
 
 alias ls='exa' 
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+PS1='\[\e[94m\][\[\e[96m\]\u\[\e[94m\]@\[\e[92m\]\h \[\e[0;1m\]\W\[\e[0;94m\]]\[\e[0m\]\\$ '
 
 alias paru="paru --sudoloop --skipreview"
 source /usr/share/nvm/init-nvm.sh

@@ -38,7 +38,7 @@ vim.cmd[[
 vim.cmd [[
 	autocmd TermOpen * setlocal nonu nornu nocursorline
 ]]
-vim.g.user_emmet_leader_key = '<C-P>'
+
 
 vim.cmd [[
 colorscheme codedark
@@ -51,24 +51,25 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-vim.g.user_emmet_install_global = 0
+
 vim.cmd [[
+
 augroup normal_rnu
 	autocmd!
 	autocmd InsertEnter * setlocal nornu
 	autocmd InsertLeave * setlocal rnu
 augroup END
 
-augroup emmet_filetype
+augroup gdscript_filetype
 	au!
-	au FileType html,css,tsx,jsx EmmetInstall
-augroup END
+	au BufNewFile,BufRead *.gd set ft=gdscript
+au END
 
 augroup tscopeprompt_setting
 	au!
