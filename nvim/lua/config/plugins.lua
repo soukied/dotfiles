@@ -7,6 +7,7 @@
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/cmp-vsnip',
 	'hrsh7th/vim-vsnip',
+	'hrsh7th/cmp-nvim-lsp-signature-help',
 	-- Monokai,
 	'sickill/vim-monokai',
 	-- Goyo mode
@@ -75,17 +76,15 @@
 	--  {'glepnir/dashboard-nvim' }
 	-- 'mhinz/vim-startify',
 	-- NERD Commenter
-	'preservim/nerdcommenter',
+	{'tpope/vim-commentary', config = function()
+		vim.keymap.set({'v', 'n'}, "<leader>/", ":Commentary<CR>")
+	end},
 	-- LSPSaga
 	'glepnir/lspsaga.nvim',
-	{ 'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	-- or                            , branch = '0.1.x',
-	  dependencies =  {'nvim-lua/plenary.nvim'}
-	},
+	{ 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies =  {'nvim-lua/plenary.nvim'}},
 	-- nvim tree
 	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
 	-- NerdTree
-	-- 'preservim/nerdtree'
 	-- Auto pairs
 	{'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end},
 	-- Treesitter
@@ -115,7 +114,7 @@
 	  config = function() require('lualine').setup(); end
 	},
 	-- Tabline
-	{'akinsho/bufferline.nvim', tag = "v3.6.0", dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
+	{'akinsho/bufferline.nvim', version='*', dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
 	-- Nord Theme
 	'arcticicestudio/nord-vim'
 }

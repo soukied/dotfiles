@@ -19,6 +19,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/
 export PATH=$PATH:$HOME/.bun/.bin
 
 export PATH=$PATH:$HOME/.local/bin
+export TERM=xterm-256color
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
