@@ -60,6 +60,9 @@ end
 
 vim.cmd [[
 
+map <silent> <F1> <Nop>
+imap <silent> <F1> <Nop>
+
 augroup normal_rnu
 	autocmd!
 	autocmd InsertEnter * setlocal nornu

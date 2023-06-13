@@ -11,8 +11,6 @@
 	'sickill/vim-monokai',
 	-- Goyo mode
 	'junegunn/goyo.vim',
-	-- ChatGPT
-	-- Packer
 	-- Floaterm
 	{'voldikss/vim-floaterm', config=function()
 		vim.cmd [[
