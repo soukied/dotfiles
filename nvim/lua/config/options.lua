@@ -41,7 +41,7 @@ vim.cmd [[
 
 
 vim.cmd [[
-colorscheme codedark
+	colorscheme gruvbox-material
 ]]
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
@@ -63,12 +63,6 @@ vim.cmd [[
 map <silent> <F1> <Nop>
 imap <silent> <F1> <Nop>
 
-augroup normal_rnu
-	autocmd!
-	autocmd InsertEnter * setlocal nornu
-	autocmd InsertLeave * setlocal rnu
-augroup END
-
 augroup gdscript_filetype
 	au!
 	au BufNewFile,BufRead *.gd set ft=gdscript
@@ -79,6 +73,8 @@ augroup tscopeprompt_setting
 	au FileType TelescopePrompt setlocal nonu nornu
 augroup END
 ]]
+
+vim.g.mapleader = "<Space>"
 
 vim.g.floaterm_keymap_new    = '<F7>'
 vim.g.floaterm_keymap_prev   = '<F8>'

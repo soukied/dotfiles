@@ -207,7 +207,7 @@ local LSP = {
 		cmd = {'jdtls'},
 		single_file_support = false
 	},
-	["jedi_language_server"] = {},
+	["pyright"] = {single_file_support=true},
 	['kotlin_language_server'] = {
 		single_file_support = true
 	},

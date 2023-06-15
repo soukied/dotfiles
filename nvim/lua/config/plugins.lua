@@ -25,6 +25,8 @@
 			tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 		]]
 	end},
+	-- Vim Wiki
+	'vimwiki/vimwiki',
 	-- Transparent
 	-- "tribela/vim-transparent"
 	-- Gitsigns
@@ -116,7 +118,7 @@
 	-- Tabline
 	{'akinsho/bufferline.nvim', version='*', dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
 	-- Nord Theme
-	'arcticicestudio/nord-vim'
+	{'nordtheme/vim', name='nord'}
 }
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
