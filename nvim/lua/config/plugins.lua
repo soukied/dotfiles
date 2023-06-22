@@ -8,6 +8,14 @@
 	'hrsh7th/cmp-vsnip',
 	'hrsh7th/vim-vsnip',
 	'hrsh7th/cmp-nvim-lsp-signature-help',
+	{
+	 "folke/trouble.nvim",
+	 opts = {
+	  -- your configuration comes here
+	  -- or leave it empty to use the default settings
+	  -- refer to the configuration section below
+	 },
+	},
 	-- Monokai,
 	'sickill/vim-monokai',
 	-- Goyo mode

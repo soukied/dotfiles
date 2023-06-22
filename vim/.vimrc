@@ -48,13 +48,13 @@ set ttimeoutlen=50
 set bg=dark
 set noshowmode
 
-colorscheme gruvbox-material
+colorscheme catppuccin_mocha
 
 set guifont=Monospace\ 12
 
 " Emmet configuration
 let g:lightline = {
-			\ 'colorscheme': 'gruvbox-material',
+			\ 'colorscheme' : 'catppuccin_mocha',
 			\ 'separator': { 'left': "", 'right': "" },
 			\ 'subseparator': { 'left': "", 'right': "" },
 			\}

@@ -9,6 +9,7 @@ PS1='\[\e[94m\][\[\e[96m\]\u\[\e[94m\]@\[\e[92m\]\h \[\e[0;1m\]\W\[\e[0;94m\]]\[
 
 alias paru="paru --sudoloop --skipreview"
 alias sudo="sudo -E"
+alias tauri="cargo-tauri"
 source /usr/share/nvm/init-nvm.sh
 
 export ANDROID_HOME="$HOME/Android/Sdk"
@@ -17,6 +18,8 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator/
 export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/
 export PATH=$PATH:$HOME/.bun/.bin
+
+export CHROME_EXECUTABLE=/usr/bin/chromium
 
 export PATH=$PATH:$HOME/.local/bin
 # export TERM=xterm-256color
