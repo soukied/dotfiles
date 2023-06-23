@@ -18,8 +18,10 @@ local options = {
 	background = 'dark',
 	cursorline = true,
 	mouse = 'a',
-	guifont = "FiraCode Nerd Font:h9"
+	guifont = "FiraCode Nerd Font:h9",
+	wildoptions = vim.opt.wildoptions - 'pum'
 }
+
 
 
 local html = vim.api.nvim_create_augroup("html_tab", {clear=true})
