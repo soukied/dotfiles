@@ -24,7 +24,7 @@
   "nvim-dap-ui": { "branch": "master", "commit": "c020f660b02772f9f3d11f599fefad3268628a9e" },
   "nvim-lspconfig": { "branch": "master", "commit": "b6b34b9acf84949f0ac1c00747765e62b81fb38d" },
   "nvim-tree.lua": { "branch": "master", "commit": "59e65d88db177ad1e6a8cffaafd4738420ad20b6" },
-  "nvim-treesitter": { "branch": "master", "commit": "fdaf9f3f98014a058401ea03603164492f243d31" },
+  "nvim-treesitter": { "branch": "master", "commit": "f03db67aa400940a4e39f138a20cc9d0843528d3" },
   "nvim-web-devicons": { "branch": "master", "commit": "14b3a5ba63b82b60cde98d0a40319d80f25e8301" },
   "onedark.vim": { "branch": "main", "commit": "4e983447f0442dba1629cdaeddfd137793d71d28" },
   "plenary.nvim": { "branch": "master", "commit": "36aaceb6e93addd20b1b18f94d86aecc552f30c4" },
@@ -39,6 +39,5 @@
   "vim-monokai": { "branch": "master", "commit": "6fb52e32863646e38cdebce57ae0d1688f334a79" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
   "vim-vsnip": { "branch": "master", "commit": "7753ba9c10429c29d25abfd11b4c60b76718c438" },
-  "vimwiki": { "branch": "dev", "commit": "942da42b96251b5b9bef4e54bb79884ebf86c1f4" },
-  "windline.nvim": { "branch": "master", "commit": "66badcb002c91f6d4bfc11726c988441a3aada6c" }
+  "vimwiki": { "branch": "dev", "commit": "942da42b96251b5b9bef4e54bb79884ebf86c1f4" }
 }
