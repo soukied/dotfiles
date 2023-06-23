@@ -16,6 +16,12 @@
 	  -- refer to the configuration section below
 	 },
 	},
+
+	-- Debugger (DAP)
+	"mfussenegger/nvim-dap",
+	{"rcarriga/nvim-dap-ui", config = function ()
+		require("dapui").setup()
+	end},
 	-- Monokai,
 	'sickill/vim-monokai',
 	-- Goyo mode
@@ -90,7 +96,9 @@
 		vim.keymap.set({'v', 'n'}, "<leader>/", ":Commentary<CR>")
 	end},
 	-- LSPSaga
-	'glepnir/lspsaga.nvim',
+	{'glepnir/lspsaga.nvim', config = function()
+		require("lspsaga").setup({})
+	end},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies =  {'nvim-lua/plenary.nvim'}},
 	-- nvim tree
 	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
@@ -118,10 +126,14 @@
 	{"catppuccin/vim"},
 	-- Polyglot
 	'sheerun/vim-polyglot',
+	-- Windline
+	-- {'windwp/windline.nvim', config = function ()
+	-- 	require('wlsample.vscode').setup()
+	-- end},
 	-- Lua line
 	{ 'nvim-lualine/lualine.nvim',
 	  dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
-	  config = function() require('lualine').setup(); end
+	  -- config = function() require('lualine').setup(); end
 	},
 	-- Tabline
 	{'akinsho/bufferline.nvim', version='*', dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},

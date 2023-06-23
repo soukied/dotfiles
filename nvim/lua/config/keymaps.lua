@@ -18,6 +18,9 @@ keymap("n", "q:","<nop>")
 
 keymap("n", "<F2>", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>ff", ":Telescope find_files<cr>")
+
+keymap("n","<leader>bq", ":bd<cr>")
+
 rekeymap("v", "<leader>/", "<leader>c<space>")
 
 -- Terminal Escape

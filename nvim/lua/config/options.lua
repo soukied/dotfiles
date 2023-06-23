@@ -41,7 +41,7 @@ vim.cmd [[
 
 
 vim.cmd [[
-	colorscheme gruvbox-material
+	colorscheme codedark
 ]]
 
 local ap_loaded, ap = pcall(require,"nvim-autopairs")
