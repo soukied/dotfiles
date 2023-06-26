@@ -49,8 +49,12 @@
 	  'glepnir/dashboard-nvim',
 	  event = 'VimEnter',
 	  config = function()
+		local version = vim.version()
 		require('dashboard').setup {
 		config = {
+			week_header = {
+				enable = false,
+			},
 			header = {
 				'',
 				' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
@@ -59,8 +63,12 @@
 				' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
 				' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
 				' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+				'',
+			},
+			footer = {
+				"",
+			"Neovim v" .. version.major .. "." .. version.minor .. '.' .. version.patch }
 			}
-}
 		}
 	  end
 	},
@@ -104,7 +112,7 @@
 	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
 	-- NerdTree
 	-- Auto pairs
-	{'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end},
+	{'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup({disable_filetype ={'','text'}}) end},
 	-- Treesitter
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Devicons

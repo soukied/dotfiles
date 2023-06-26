@@ -11,6 +11,7 @@ Plug 'cohama/lexima.vim'
 Plug 'sainnhe/gruvbox-material', { 'as' : 'gruvboxmaterial' }
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasiser/vim-code-dark'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim', {'as':'dracula'}
@@ -48,13 +49,13 @@ set ttimeoutlen=50
 set bg=dark
 set noshowmode
 
-colorscheme catppuccin_mocha
+colorscheme codedark
 
 set guifont=Monospace\ 12
 
 " Emmet configuration
 let g:lightline = {
-			\ 'colorscheme' : 'catppuccin_mocha',
+			\ 'colorscheme' : 'codedark',
 			\ 'separator': { 'left': "", 'right': "" },
 			\ 'subseparator': { 'left': "", 'right': "" },
 			\}
