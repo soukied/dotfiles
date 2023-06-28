@@ -1,5 +1,4 @@
 # # ~/.bashrc #
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -18,6 +17,9 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator/
 export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/
 export PATH=$PATH:$HOME/.bun/.bin
+
+export VISUAL=nvim
+export EDITOR=nvim
 
 export CHROME_EXECUTABLE=/usr/bin/chromium
 
