@@ -32,7 +32,8 @@ keymap("n", "<leader>p",":bp<cr>")
 keymap("n", "q:","<nop>")
 
 keymap("n", "<F2>", ":NvimTreeToggle<cr>")
-keymap("n", "<leader>ff", ":Telescope file_browser hidden=true<cr>")
+keymap("n", "<leader>ff", ":Telescope find_files hidden=true<cr>")
+keymap("n", "<leader>fb", ":Telescope file_browser hidden=true<cr>")
 
 keymap("v", "<leader>/", ":Commentary<cr>")
 keymap("n", "/", "<c-l>/")

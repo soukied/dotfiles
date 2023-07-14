@@ -1,4 +1,9 @@
 local ok1,cmp = pcall(require,'cmp')
+
+local signature_setup = {
+	hint_prefix = "󰊕() ",
+	floating_window = false
+}
 if not ok1 then return end
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -11,6 +16,7 @@ vim.api.nvim_set_keymap('n', '<space>q', '<cmd>TroubleToggle<CR>', opts)
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
+  	require "lsp_signature".on_attach(signature_setup, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	-- Mappings.

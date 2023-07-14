@@ -6,7 +6,7 @@
 	'hrsh7th/nvim-cmp',
 	'hrsh7th/cmp-vsnip',
 	'hrsh7th/vim-vsnip',
-	'hrsh7th/cmp-nvim-lsp-signature-help',
+	'ray-x/lsp_signature.nvim',
 	{'folke/neodev.nvim', config=function()
 			require('neodev').setup()
 	end},

@@ -10,7 +10,6 @@ local options = {
 	backup = false,
 	swapfile = false,
 	laststatus=3,
-	showmode=false,
 	splitbelow = true,
 	splitright = true,
 	hidden = true,
@@ -36,11 +35,6 @@ vim.cmd[[
 	set sessionoptions+=tabpages,globals " store tabpages and globals in session
 	let NERDTreeShowHidden=1
 ]]
-
-vim.cmd [[
-	autocmd TermOpen * setlocal nonu nornu nocursorline
-]]
-
 
 vim.cmd [[
 	colorscheme codedark
@@ -70,10 +64,6 @@ augroup gdscript_filetype
 	au BufNewFile,BufRead *.gd set ft=gdscript
 au END
 
-augroup tscopeprompt_setting
-	au!
-	au FileType TelescopePrompt setlocal nonu nornu
-augroup END
 ]]
 
 vim.g.mapleader = "<Space>"
