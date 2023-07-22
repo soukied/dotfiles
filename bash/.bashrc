@@ -7,8 +7,9 @@
 
 alias ls='exa'
 alias ll='exa -l'
+alias sudo="sudo -E"
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
+export PS1="\[$(tput setaf 226)\]\u\[$(tput setaf 220)\]@\[$(tput setaf 214)\]\h \[$(tput setaf 9)\]\w \[$(tput sgr0)\]$ "
 
 alias paru="paru --skipreview --sudoloop"
 
