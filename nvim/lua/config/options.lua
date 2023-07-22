@@ -1,5 +1,6 @@
 local tabs = 4
 local options = {
+	showmode = false,
 	softtabstop =tabs,
 	tabstop=tabs,
 	shiftwidth=tabs,
@@ -9,7 +10,7 @@ local options = {
 	relativenumber=true,
 	backup = false,
 	swapfile = false,
-	laststatus=3,
+	laststatus=2,
 	splitbelow = true,
 	splitright = true,
 	hidden = true,

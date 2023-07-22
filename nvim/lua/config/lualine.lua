@@ -6,7 +6,7 @@ local config = {
 	options = {
 	-- Disable sections and component separators
 		disabled_filetypes = {
-			statusline = {"Trouble", "NvimTree"}
+			statusline = {"Trouble", "NvimTree", "toggleterm"}
 		},
 	}
 }
