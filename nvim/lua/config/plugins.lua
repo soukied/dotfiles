@@ -140,8 +140,6 @@
 	-- nvim tree
 	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
 	-- NerdTree
-	-- Auto pairs
-	{'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup({disable_filetype ={'','text'}}) end},
 	-- Treesitter
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Devicons

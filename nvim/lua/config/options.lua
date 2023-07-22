@@ -21,8 +21,6 @@ local options = {
 	wildoptions = vim.opt.wildoptions - 'pum'
 }
 
-
-
 local html = vim.api.nvim_create_augroup("html_tab", {clear=true})
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = html,
@@ -37,11 +35,8 @@ vim.cmd[[
 ]]
 
 vim.cmd [[
-	colorscheme codedark
+	colorscheme everforest
 ]]
-
-local ap_loaded, ap = pcall(require,"nvim-autopairs")
-if ap_loaded then ap.setup() end
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
