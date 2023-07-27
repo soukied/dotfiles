@@ -18,6 +18,7 @@ keymap("i", "<C-a>", "<Esc>I")
 keymap("v", "<Tab>", ">gv")
 keymap("v", "<S-Tab>", "<gv")
 
+keymap("n", "<esc>", ":noh<cr>")
 
 -- Windowing
 keymap("n", "<leader>ws", ":split<cr>")
@@ -26,6 +27,7 @@ keymap("n", "<leader>wh", "<C-W>h")
 keymap("n", "<leader>wj", "<C-W>j")
 keymap("n", "<leader>wk", "<C-W>k")
 keymap("n", "<leader>wl", "<C-W>l")
+
 
 keymap("n", "<leader>n",":bn<cr>")
 keymap("n", "<leader>p",":bp<cr>")

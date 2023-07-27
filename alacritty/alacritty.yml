@@ -36,85 +36,143 @@ env:
 # Copyright (c) 2016-present Sven Greb <development@svengreb.de>
 # This source code is licensed under the MIT license found in the license file.
 
-colors:
-    # Default colors
+# Define
+schemes:
+  everforest_dark_hard: &everforest_dark_hard
     primary:
-        background: "#24273A" # base
-        foreground: "#CAD3F5" # text
-        # Bright and dim foreground colors
-        dim_foreground: "#CAD3F5" # text
-        bright_foreground: "#CAD3F5" # text
-
-    # Cursor colors
-    cursor:
-        text: "#24273A" # base
-        cursor: "#F4DBD6" # rosewater
-    vi_mode_cursor:
-        text: "#24273A" # base
-        cursor: "#B7BDF8" # lavender
-
-    # Search colors
-    search:
-        matches:
-            foreground: "#24273A" # base
-            background: "#A5ADCB" # subtext0
-        focused_match:
-            foreground: "#24273A" # base
-            background: "#A6DA95" # green
-        footer_bar:
-            foreground: "#24273A" # base
-            background: "#A5ADCB" # subtext0
-
-    # Keyboard regex hints
-    hints:
-        start:
-            foreground: "#24273A" # base
-            background: "#EED49F" # yellow
-        end:
-            foreground: "#24273A" # base
-            background: "#A5ADCB" # subtext0
-
-    # Selection colors
-    selection:
-        text: "#24273A" # base
-        background: "#F4DBD6" # rosewater
-
-    # Normal colors
+      background: '#272e33'
+      foreground: '#d3c6aa'
     normal:
-        black: "#494D64" # surface1
-        red: "#ED8796" # red
-        green: "#A6DA95" # green
-        yellow: "#EED49F" # yellow
-        blue: "#8AADF4" # blue
-        magenta: "#F5BDE6" # pink
-        cyan: "#8BD5CA" # teal
-        white: "#B8C0E0" # subtext1
-
-    # Bright colors
+      black:   '#414b50'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
     bright:
-        black: "#5B6078" # surface2
-        red: "#ED8796" # red
-        green: "#A6DA95" # green
-        yellow: "#EED49F" # yellow
-        blue: "#8AADF4" # blue
-        magenta: "#F5BDE6" # pink
-        cyan: "#8BD5CA" # teal
-        white: "#A5ADCB" # subtext0
+      black:   '#475258'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+  everforest_dark_medium: &everforest_dark_medium
+    primary:
+      background: '#2d353b'
+      foreground: '#d3c6aa'
+    normal:
+      black:   '#475258'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+    bright:
+      black:   '#475258'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+  everforest_dark_soft: &everforest_dark_soft
+    primary:
+      background: '#333c43'
+      foreground: '#d3c6aa'
+    normal:
+      black:   '#4d5960'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+    bright:
+      black:   '#4d5960'
+      red:     '#e67e80'
+      green:   '#a7c080'
+      yellow:  '#dbbc7f'
+      blue:    '#7fbbb3'
+      magenta: '#d699b6'
+      cyan:    '#83c092'
+      white:   '#d3c6aa'
+  everforest_light_hard: &everforest_light_hard
+    primary:
+      background: '#fffbef'
+      foreground: '#5c6a72'
+    normal:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#e8e5d5'
+    bright:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#e8e5d5'
+  everforest_light_medium: &everforest_light_medium
+    primary:
+      background: '#fdf6e3'
+      foreground: '#5c6a72'
+    normal:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#e0dcc7'
+    bright:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#e0dcc7'
+  everforest_light_soft: &everforest_light_soft
+    primary:
+      background: '#f3ead3'
+      foreground: '#5c6a72'
+    normal:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#d8d3ba'
+    bright:
+      black:   '#5c6a72'
+      red:     '#f85552'
+      green:   '#8da101'
+      yellow:  '#dfa000'
+      blue:    '#3a94c5'
+      magenta: '#df69ba'
+      cyan:    '#35a77c'
+      white:   '#d8d3ba'
 
-    # Dim colors
-    dim:
-        black: "#494D64" # surface1
-        red: "#ED8796" # red
-        green: "#A6DA95" # green
-        yellow: "#EED49F" # yellow
-        blue: "#8AADF4" # blue
-        magenta: "#F5BDE6" # pink
-        cyan: "#8BD5CA" # teal
-        white: "#B8C0E0" # subtext1
-
-    indexed_colors:
-        - { index: 16, color: "#F5A97F" }
-        - { index: 17, color: "#F4DBD6" }
+# Apply
+colors: *everforest_dark_medium
 
 window:
   # Window dimensions (changes require restart)
