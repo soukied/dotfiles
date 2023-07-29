@@ -5,11 +5,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+set tabs -4
+
 alias docker="podman"
 alias ls='exa'
 alias ll='exa -l'
 alias sudo="sudo -E"
 alias grep='grep --color=auto'
+alias tree="tree -C"
+alias cat="bat"
 
 vi() {
 	nvi $@

@@ -151,7 +151,7 @@
 	-- Dracula Theme
 	{"dracula/vim", name = "dracula"},
 	-- Catppuccin
-	{"catppuccin/vim"},
+	{"catppuccin/vim", name="catppuccin"},
 	-- Polyglot
 	'sheerun/vim-polyglot',
 	-- Windline

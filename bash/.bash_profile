@@ -14,5 +14,4 @@ if [[ "$HOSTNAME" == "greizon" ]]; then
 	eval "$(pyenv init -)"
 fi
 
-
 # export __GL_THREADED_OPTIMIZATIONS=1

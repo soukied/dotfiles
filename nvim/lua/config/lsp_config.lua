@@ -222,19 +222,19 @@ local LSP = {
 	},
 	["jsonls"] = {},
 	["html"] = {},
-	["emmet_ls"] = {
-		capabilities = capabilities,
-		single_file_support = true,
-		filetypes = { "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue" },
-		init_options = {
-		  html = {
-			options = {
-			  -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-			  ["bem.enabled"] = true,
-			},
-		  },
-		}
-	},
+	-- ["emmet_ls"] = {
+	-- 	capabilities = capabilities,
+	-- 	single_file_support = true,
+	-- 	filetypes = { "html", "javascriptreact", "svelte", "pug", "typescriptreact", "vue" },
+	-- 	init_options = {
+	-- 	  html = {
+	-- 		options = {
+	-- 		  -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+	-- 		  ["bem.enabled"] = true,
+	-- 		},
+	-- 	  },
+	-- 	}
+	-- },
 	["cssls"] = {},
 	["lua_ls"] = {
 		settings = {

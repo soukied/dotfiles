@@ -1,10 +1,14 @@
+set nocompatible
 call plug#begin()
+Plug 'pacha/vem-tabline'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'sainnhe/everforest'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'voldikss/vim-floaterm'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 filetype plugin indent on
@@ -12,6 +16,7 @@ syntax on
 
 set nu rnu
 set cursorline
+set hidden
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -47,6 +52,8 @@ nnoremap <silent> <leader>wl <C-w>l
 
 nnoremap <silent> <leader>n :bn<cr>
 nnoremap <silent> <leader>p :bp<cr>
+
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
 
 vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
