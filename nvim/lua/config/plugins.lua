@@ -103,7 +103,7 @@
 	{'glepnir/lspsaga.nvim', config = function()
 		require("lspsaga").setup({})
 	end},
-	{ 'nvim-telescope/telescope.nvim', tag = '0.1.0', dependencies =  {'nvim-lua/plenary.nvim'}},
+	{ 'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies =  {'nvim-lua/plenary.nvim'}},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
@@ -113,7 +113,7 @@
 				file_browser = {
 				  theme = "ivy",
 				  -- disables netrw and use telescope-file-browser in its place
-				  hijack_netrw = true,
+				  -- hijack_netrw = true,
 				  mappings = {
 					["i"] = {
 					  -- your custom insert mode mappings
