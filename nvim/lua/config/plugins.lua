@@ -94,6 +94,13 @@
 	},
 	-- Dashbord / Startify
 	--  {'glepnir/dashboard-nvim' }
+	-- Fine Command
+	-- {
+	--   'VonHeikemen/fine-cmdline.nvim',
+	--   dependencies = {
+	-- 	{'MunifTanjim/nui.nvim'}
+	--   }
+	-- },
 	-- 'mhinz/vim-startify',
 	-- NERD Commenter
 	{'tpope/vim-commentary', config = function()

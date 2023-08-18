@@ -36,7 +36,7 @@ vim.cmd[[
 ]]
 
 vim.cmd [[
-	colorscheme everforest
+	colorscheme catppuccin_macchiato
 ]]
 
 for k, v in pairs(options) do

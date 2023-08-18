@@ -4,6 +4,10 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+if [[ "$DESKTOP_SESSION" == "dwm" ]]; then
+	export QT_QPA_PLATFORMTHEME="qt6ct"
+fi
+
 export PATH="$PATH:/home/soukied/.local/podman/bin"
 
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
@@ -13,5 +17,3 @@ if [[ "$HOSTNAME" == "greizon" ]]; then
 	command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 	eval "$(pyenv init -)"
 fi
-
-# export __GL_THREADED_OPTIMIZATIONS=1
