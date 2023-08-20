@@ -22,6 +22,8 @@ local options = {
 	wildoptions = vim.opt.wildoptions - 'pum'
 }
 
+vim.opt.fillchars:append('eob: ')
+
 local html = vim.api.nvim_create_augroup("html_tab", {clear=true})
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = html,
@@ -36,7 +38,7 @@ vim.cmd[[
 ]]
 
 vim.cmd [[
-	colorscheme catppuccin_macchiato
+	colorscheme catppuccin_mocha
 ]]
 
 for k, v in pairs(options) do

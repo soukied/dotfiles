@@ -144,6 +144,8 @@
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	-- Devicons
 	"ryanoasis/vim-devicons",
+	-- Gruber Dark
+	'https://gitlab.com/madyanov/gruber.vim.git',
 	-- VSCode Dark Theme
 	'tomasiser/vim-code-dark',
 	-- Everforest
