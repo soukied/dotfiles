@@ -6,9 +6,10 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
+Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-sensible'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'catppuccin/vim',{'as':'catppuccin'}
 Plug 'voldikss/vim-floaterm'
 Plug 'nordtheme/vim', {'as':'nord'}
@@ -46,19 +47,22 @@ set guifont=Monospace\ 16
 set laststatus=2 " Always show the status line
 set novisualbell
 set bg=dark
+set ruler
 set nocursorline
 set guioptions-=m
 set guioptions-=T
+set updatetime=50
+set statusline=\ -*%n:%H%R*-\ \ %t\ \ \ \ \ \ \ \ \ \ %P\ \(%l,%c\)
 
 set guifont=Iosevka\ Nerd\ Font\ 17
 
 set fillchars+=vert:\│
 set fillchars+=eob:\ 
 
-colorscheme catppuccin_mocha
+colorscheme gruber
 
 let g:lightline = {
-			\ 'colorscheme': 'catppuccin_mocha',
+			\ 'colorscheme': 'gruber',
 			\ }
 
 let &t_SI = "\<Esc>[6 q"
@@ -120,8 +124,16 @@ augroup python_requirements
 	au! BufRead,BufNewFile requirements.txt setlocal syntax=python
 augroup END
 
+augroup vimrc_run
+	au! BufRead,BufNewFile .vimrc nnoremap <silent> <buffer> <F5> :%source<CR>
+augroup END
+
 augroup help_quit
 	au! FileType help nnoremap <silent> <buffer> <nowait> q :q<CR>
+augroup END
+
+augroup html_rules
+	au! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 function! Toggle_Wrap()
@@ -135,5 +147,5 @@ endfunction
 
 hi link xmlEndTag xmlTag
 
-command ToggleWrap :call Toggle_Wrap()
-command Zen :call ZenMode()
+command! ToggleWrap :call Toggle_Wrap()
+command! Zen :call ZenMode()

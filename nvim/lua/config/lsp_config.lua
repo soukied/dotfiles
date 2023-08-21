@@ -1,7 +1,7 @@
 local ok1,cmp = pcall(require,'cmp')
 
 local signature_setup = {
-	hint_prefix = "󰊕() ",
+	hint_prefix = "",
 	floating_window = false
 }
 if not ok1 then return end
