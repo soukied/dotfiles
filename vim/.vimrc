@@ -89,8 +89,10 @@ nnoremap <silent> q: <nop>
 nnoremap <silent> <leader>n :bn<cr>
 nnoremap <silent> <leader>p :bp<cr>
 
-nnoremap <silent> <C-j> <Esc>
-nnoremap <silent> <C-k> <Esc>
+inoremap <silent> <C-j> <Esc>
+cnoremap <silent> <C-j> <C-\><C-n>
+inoremap <silent> <C-k> <Esc>
+cnoremap <silent> <C-k> <C-\><C-n>
 
 nnoremap <silent> <leader>bl :buffers<cr>
 nnoremap <silent> <leader>bq :bdelete! 
@@ -130,6 +132,8 @@ function! ZenMode()
 	Goyo
 	Limelight!!
 endfunction
+
+hi link xmlEndTag xmlTag
 
 command ToggleWrap :call Toggle_Wrap()
 command Zen :call ZenMode()
