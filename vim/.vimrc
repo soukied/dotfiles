@@ -2,6 +2,8 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'pacha/vem-tabline'
+Plug 'mg979/vim-visual-multi'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -42,6 +44,7 @@ set noswapfile
 set laststatus=2
 set ttimeoutlen=50
 set splitright splitbelow
+set hlsearch
 set wildmenu
 set guifont=Monospace\ 16
 set laststatus=2 " Always show the status line
@@ -52,7 +55,7 @@ set nocursorline
 set guioptions-=m
 set guioptions-=T
 set updatetime=50
-set statusline=\ -*%n:%H%R*-\ \ %t\ \ \ \ \ \ \ \ \ \ %P\ \(%l,%c\)
+set statusline=\ -*%n:%H%R%{FugitiveStatusline()}*-\ \ %t\ \ \ \ \ \ \ \ \ \ %P\ \(%l,%c\)
 
 set guifont=Iosevka\ Nerd\ Font\ 17
 
@@ -115,6 +118,9 @@ vnoremap <silent> > >gv
 vnoremap <silent> < <gv
 vnoremap <silent> <C-c> "+y
 nnoremap <silent> <C-p> "+p
+
+nnoremap <silent> <leader>hc :noh<CR>
+
 
 augroup assembly_extension
 	au! BufRead,BufNewFile *.asm setlocal filetype=asm
