@@ -2,8 +2,8 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'pacha/vem-tabline'
 Plug 'mg979/vim-visual-multi'
+Plug 'tomasiser/vim-code-dark'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -11,9 +11,8 @@ Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-sensible'
-"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'catppuccin/vim',{'as':'catppuccin'}
-Plug 'voldikss/vim-floaterm'
 Plug 'nordtheme/vim', {'as':'nord'}
 Plug 'dylanaraps/wal.vim'
 Plug 'https://gitlab.com/madyanov/gruber.vim.git'
@@ -51,38 +50,34 @@ set laststatus=2 " Always show the status line
 set novisualbell
 set bg=dark
 set ruler
+set foldmethod=marker
+set foldenable
 set nocursorline
 set guioptions-=m
 set guioptions-=T
 set updatetime=50
-set statusline=\ -*%n:%H%R%{FugitiveStatusline()}*-\ \ %t\ \ \ \ \ \ \ \ \ \ %P\ \(%l,%c\)
+" set statusline=\ -*%n:%H%R%{FugitiveStatusline()}*-\ \ %t\ \ \ \ \ \ \ \ \ \ %P\ \(%l,%c\)
+set statusline=\ -*%n:%H%R
+if exists('function#FugitiveStatusline')
+	set statusline+=%{FugitiveStatusline()}
+	echo 'It exists'
+endif
+set statusline+=*-
+set statusline+=\ \ \ \ %t
+set statusline+=\ \ \ \ \ \ \ \ 
+set statusline+=%P\ (%l,%c)
 
 set guifont=Iosevka\ Nerd\ Font\ 17
 
 set fillchars+=vert:\│
 set fillchars+=eob:\ 
 
-colorscheme gruber
-
-let g:lightline = {
-			\ 'colorscheme': 'gruber',
-			\ }
-
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+colorscheme codedark
 
 let mapleader = " " 
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden = 1
-
-" Configuration example
-let g:floaterm_title	 = '(terminal) $1/$2'
-let g:floaterm_keymap_new	 = '<leader>tc'
-let g:floaterm_keymap_prev   = '<leader>tn'
-let g:floaterm_keymap_next   = '<leader>tp'
-let g:floaterm_keymap_toggle = '<F12>'
-let g:floaterm_autoclose = 2
 
 nnoremap <silent> <F1> <nop>
 
@@ -107,10 +102,15 @@ nnoremap <silent> <leader>bq :bdelete!
 nnoremap <silent> & viW"ty/<C-r>t<CR>
 
 nnoremap <silent> <C-\> :noh<CR>
-nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F2> :e.<CR>
 vmap <silent> <leader>/ <leader>c<Space>
 
 nnoremap <silent> <F7> :call ZenMode()<CR>
+
+" Terminal mapping
+
+tnoremap <silent> <nowait> <C-\> <C-\><C-n>:q!<CR>
+nnoremap <silent> <nowait> <C-\> :term<CR>
 
 vnoremap <silent> <Tab> >gv
 vnoremap <silent> <S-Tab> <gv
@@ -120,7 +120,6 @@ vnoremap <silent> <C-c> "+y
 nnoremap <silent> <C-p> "+p
 
 nnoremap <silent> <leader>hc :noh<CR>
-
 
 augroup assembly_extension
 	au! BufRead,BufNewFile *.asm setlocal filetype=asm
@@ -140,6 +139,11 @@ augroup END
 
 augroup html_rules
 	au! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
+augroup gdscript_syntax
+	au! BufRead,BufNewFile *.gd setlocal ft=gdscript
+	au! BufRead,BufNewFile *.gdscript setlocal ft=gdscript
 augroup END
 
 function! Toggle_Wrap()

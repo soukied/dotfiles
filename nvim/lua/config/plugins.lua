@@ -17,6 +17,8 @@
 	 },
 	},
 
+	-- Tetris
+	{'alec-gibson/nvim-tetris'},
 	-- Debugger (DAP)
 	"mfussenegger/nvim-dap",
 	{"rcarriga/nvim-dap-ui", config = function ()
