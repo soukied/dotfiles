@@ -162,7 +162,5 @@ function! ZenMode()
 	Limelight!!
 endfunction
 
-hi link xmlEndTag xmlTag
-
 command! ToggleWrap :call Toggle_Wrap()
 command! Zen :call ZenMode()
