@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'tomasiser/vim-code-dark'
 Plug 'junegunn/goyo.vim'
@@ -72,12 +73,17 @@ set guifont=Iosevka\ Nerd\ Font\ 17
 set fillchars+=vert:\│
 set fillchars+=eob:\ 
 
-colorscheme codedark
+colorscheme everforest
 
 let mapleader = " " 
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden = 1
+
+let g:user_emmet_mode='n'
+let g:user_emmet_install_global = 0
+
+let g:user_emmet_leader_key=','
 
 nnoremap <silent> <F1> <nop>
 
@@ -139,6 +145,7 @@ augroup END
 
 augroup html_rules
 	au! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+	au! FileType html EmmetInstall
 augroup END
 
 augroup gdscript_syntax

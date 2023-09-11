@@ -7,28 +7,28 @@
 
 export PATH="$PATH:$HOME/.local/bin"
 
-set tabs -4
+export EDITOR=vim
+export VISUAL=vim
 
-alias docker="podman"
 alias ls='exa'
 alias ll='exa -l'
+alias npm="pnpm"
 alias sudo="sudo -E"
-alias grep='grep --color=auto'
-alias tree="tree -C"
-alias cat="bat"
-
-vi() {
-	nvi $@
-}
-
-export PS1="\[$(tput setaf 226)\]\u\[$(tput setaf 220)\]@\[$(tput setaf 214)\]\h \[$(tput setaf 9)\]\W \[$(tput sgr0)\]$ "
-
 alias paru="paru --skipreview --sudoloop"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias grep='grep --color=auto'
+PS1='\[\e[92m\]\u\[\e[93m\]@\[\e[92m\]\H \[\e[36m\]\W \[\e[37m\]\\$ \[\e[0m\]'
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/soukied/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# nvm
+source /usr/share/nvm/init-nvm.sh
