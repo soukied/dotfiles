@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'maxbane/vim-asm_ca65'
 Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'tomasiser/vim-code-dark'
@@ -159,6 +160,10 @@ augroup END
 
 augroup vimrc_run
 	au! BufRead,BufNewFile .vimrc nnoremap <silent> <buffer> <F5> :%source<CR>
+augroup END
+
+augroup ca65_ft
+    au BufNewFile,BufRead *.s,*.inc setlocal ft=asm_ca65
 augroup END
 
 augroup help_quit

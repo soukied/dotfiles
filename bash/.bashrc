@@ -10,9 +10,10 @@ export PATH="$PATH:$HOME/.local/bin"
 export EDITOR=vim
 export VISUAL=vim
 
-alias ls='exa'
-alias ll='exa -l'
-alias npm="pnpm"
+if command -v exa > /dev/null; then
+	alias ls='exa'
+	alias ll='exa -l'
+fi
 alias sudo="sudo -E"
 alias paru="paru --skipreview --sudoloop"
 alias grep='grep --color=auto'
@@ -32,3 +33,10 @@ esac
 
 # nvm
 source /usr/share/nvm/init-nvm.sh
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if command -v pyenv > /dev/null; then
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+fi
