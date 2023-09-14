@@ -46,7 +46,6 @@ set ttimeoutlen=50
 set splitright splitbelow
 set hlsearch
 set wildmenu
-set guifont=Monospace\ 16
 set laststatus=2 " Always show the status line
 set novisualbell
 set bg=dark
@@ -68,12 +67,32 @@ set statusline+=\ \ \ \ %t
 set statusline+=\ \ \ \ \ \ \ \ 
 set statusline+=%P\ (%l,%c)
 
-set guifont=Iosevka\ Nerd\ Font\ 17
+let g:font_family = 'Iosevka\ Nerd\ Font'
+let g:font_size = 17
+let g:font_size_gap = 0.5
+
+function! ResetFont()
+	if has('gui_running')
+		exe 'set guifont=' . g:font_family . '\ ' . string(g:font_size)
+	endif
+endfunction
+
+function! ZoomIn() 
+	let g:font_size = g:font_size + g:font_size_gap
+	call ResetFont()
+endfunction
+
+function! ZoomOut() 
+	let g:font_size = g:font_size - 1
+	call ResetFont()
+endfunction
+
+call ResetFont()
 
 set fillchars+=vert:\│
 set fillchars+=eob:\ 
 
-colorscheme everforest
+colorscheme catppuccin_mocha
 
 let mapleader = " " 
 let g:airline#extensions#whitespace#enabled = 0
@@ -101,6 +120,9 @@ inoremap <silent> <C-j> <Esc>
 cnoremap <silent> <C-j> <C-\><C-n>
 inoremap <silent> <C-k> <Esc>
 cnoremap <silent> <C-k> <C-\><C-n>
+
+nnoremap <silent> <C-=> :call ZoomIn()<CR>
+nnoremap <silent> <C-_> :call ZoomOut()<CR>
 
 nnoremap <silent> <leader>bl :buffers<cr>
 nnoremap <silent> <leader>bq :bdelete! 
