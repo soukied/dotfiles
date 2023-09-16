@@ -32,7 +32,7 @@ esac
 # pnpm end
 
 # nvm
-source /usr/share/nvm/init-nvm.sh
+[[ -f "/usr/share/nvm/init-nvm.sh" ]] && source /usr/share/nvm/init-nvm.sh
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

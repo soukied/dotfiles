@@ -24,6 +24,8 @@
 	{"rcarriga/nvim-dap-ui", config = function ()
 		require("dapui").setup()
 	end},
+	{'mattn/emmet-vim', config= function()
+	end},
 	-- Monokai,
 	'sickill/vim-monokai',
 	-- Goyo mode
@@ -36,6 +38,7 @@
 	end},
 	-- Vim Wiki
 	'vimwiki/vimwiki',
+	'nvim-tree/nvim-web-devicons',
 	-- Transparent
 	-- "tribela/vim-transparent"
 	-- Gitsigns
@@ -116,9 +119,6 @@
 		vim.keymap.set({'v', 'n'}, "<leader>/", ":Commentary<CR>")
 	end},
 	-- LSPSaga
-	{'glepnir/lspsaga.nvim', config = function()
-		require("lspsaga").setup({})
-	end},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies =  {'nvim-lua/plenary.nvim'}},
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
@@ -151,8 +151,6 @@
 	-- NerdTree
 	-- Treesitter
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	-- Devicons
-	"ryanoasis/vim-devicons",
 	-- Gruber Dark
 	'https://gitlab.com/madyanov/gruber.vim.git',
 	-- VSCode Dark Theme
@@ -177,12 +175,9 @@
 	-- 	require('wlsample.vscode').setup()
 	-- end},
 	-- Lua line
-	{ 'nvim-lualine/lualine.nvim',
-	  dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
-	  -- config = function() require('lualine').setup(); end
-	},
+	{ 'nvim-lualine/lualine.nvim' },
 	-- Tabline
-	{'akinsho/bufferline.nvim', version='*', dependencies = {'kyazdani42/nvim-web-devicons'}, config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
+	{'akinsho/bufferline.nvim', version='*', config = function() require("bufferline").setup({options={always_show_bufferline=false}}) end},
 	-- Nord Theme
 	{'nordtheme/vim', name='nord'}
 }

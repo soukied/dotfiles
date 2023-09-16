@@ -21,6 +21,9 @@ keymap("v", "<S-Tab>", "<gv")
 
 keymap("n", "<esc>", ":noh<cr>")
 
+keymap("v", ">", ">gv")
+keymap("v", "<", ":noh<cr>")
+
 -- Windowing
 keymap("n", "<leader>ws", ":split<cr>")
 keymap("n", "<leader>wv", ":vsplit<cr>")
@@ -39,7 +42,7 @@ keymap("n", "<leader>ff", ":Telescope find_files hidden=true<cr>")
 keymap("n", "<leader>fb", ":Telescope file_browser hidden=true<cr>")
 
 keymap("v", "<leader>/", ":Commentary<cr>")
-keymap("n", "/", "<c-l>/")
+-- keymap("n", "/", "<c-l>/")
 
 keymap("n","<leader>bq", ":bd<cr>")
 

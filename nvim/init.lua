@@ -1,5 +1,6 @@
 local import = require 'module_loader'
 
+import 'config.preoptions'
 import 'config.plugins'
 import 'config.options'
 import 'config.keymaps'
