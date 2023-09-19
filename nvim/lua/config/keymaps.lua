@@ -36,6 +36,7 @@ keymap("n", "<leader>wl", "<C-W>l")
 keymap("n", "<leader>n",":bn<cr>")
 keymap("n", "<leader>p",":bp<cr>")
 keymap("n", "q:","<nop>")
+keymap("n", "<leader>h",":noh<cr>")
 
 keymap("n", "<F2>", ":NvimTreeToggle<cr>")
 keymap("n", "<leader>ff", ":Telescope find_files hidden=true<cr>")

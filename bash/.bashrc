@@ -7,6 +7,7 @@
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 
+export PAGER=most
 export EDITOR=vim
 export VISUAL=vim
 
@@ -15,16 +16,12 @@ if command -v nvi > /dev/null; then
 fi
 
 if command -v exa > /dev/null; then
-	alias ls='exa'
-	alias ll='exa -l --icons'
+	alias ls='eza'
+	alias ll='eza -l --icons'
 fi
 alias sudo="sudo -E"
 alias paru="paru --skipreview --sudoloop"
 alias grep='grep --color=auto'
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
 
 export PS1='\[\e[92m\]\u\[\e[93m\]@\[\e[92m\]\H \[\e[36m\]\W \[\e[37m\]\\$ \[\e[0m\]'
 

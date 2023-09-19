@@ -464,7 +464,7 @@ cursor:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 #shell:
-#  program: /bin/bash
+#  program: /usr/bin/tmux
 #  args:
 #    - --login
 
