@@ -22,7 +22,7 @@ keymap("v", "<S-Tab>", "<gv")
 keymap("n", "<esc>", ":noh<cr>")
 
 keymap("v", ">", ">gv")
-keymap("v", "<", ":noh<cr>")
+keymap("v", "<", "<gv")
 
 -- Windowing
 keymap("n", "<leader>ws", ":split<cr>")

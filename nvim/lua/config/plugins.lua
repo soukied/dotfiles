@@ -114,10 +114,18 @@
 	--   }
 	-- },
 	-- 'mhinz/vim-startify',
+		{
+			'numToStr/Comment.nvim',
+			opts = {
+				-- add any options here
+			},
+			lazy = false,
+		},
+	--
 	-- NERD Commenter
-	{'tpope/vim-commentary', config = function()
-		vim.keymap.set({'v', 'n'}, "<leader>/", ":Commentary<CR>")
-	end},
+	-- {'tpope/vim-commentary', config = function()
+	-- 	vim.keymap.set({'v', 'n'}, "<leader>/", ":Commentary<CR>")
+	-- end},
 	-- LSPSaga
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.2', dependencies =  {'nvim-lua/plenary.nvim'}},
 	{
@@ -150,7 +158,10 @@
 	{'kyazdani42/nvim-tree.lua', tag='nightly', config = function() require('nvim-tree').setup() end},
 	-- NerdTree
 	-- Treesitter
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+	config = function() 
+		vim.api.nvim_set_hl(0, "TSGroup", {link = "@group"})
+	end},
 	-- Gruber Dark
 	'https://gitlab.com/madyanov/gruber.vim.git',
 	-- VSCode Dark Theme

@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxbane/vim-asm_ca65'
 Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi'
@@ -97,7 +98,7 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
 
-colorscheme catppuccin_mocha
+colorscheme nord
 
 let mapleader = " " 
 let g:airline#extensions#whitespace#enabled = 0
