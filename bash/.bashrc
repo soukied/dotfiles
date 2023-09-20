@@ -1,15 +1,16 @@
 #
 # ~/.bashrc
 #
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 
-export PAGER=most
+# export PAGER=most
 export EDITOR=vim
 export VISUAL=vim
+
+alias cls="clear"
 
 if command -v nvi > /dev/null; then
 	alias vi='nvi'
@@ -23,7 +24,14 @@ alias sudo="sudo -E"
 alias paru="paru --skipreview --sudoloop"
 alias grep='grep --color=auto'
 
-export PS1='\[\e[92m\]\u\[\e[93m\]@\[\e[92m\]\H \[\e[36m\]\W \[\e[37m\]\\$ \[\e[0m\]'
+if [[ -f ~/.git-prompt.sh ]]; then
+	source ~/.git-prompt.sh
+else
+	__git_ps1() {
+		echo ""
+	}
+fi
+export PS1='\[\e[92m\]\u\[\e[93m\]@\[\e[92m\]\H \[\e[36m\]\W\[\e[93m\]$(__git_ps1 " ( %s)") \[\e[37m\]\\$ \[\e[0m\]'
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -43,13 +51,9 @@ esac
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
-# [ -f ~/.vimrc ] && eval "$(starship init bash)"
-
 refreshenv() {
-	bash
-	exit > /dev/null
+	source ~/.bashrc
 }
-
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

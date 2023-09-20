@@ -236,6 +236,7 @@ local LSP = {
 	-- 	}
 	-- },
 	["cssls"] = {},
+	["omnisharp"] = {},
 	["lua_ls"] = {
 		settings = {
 			Lua = {

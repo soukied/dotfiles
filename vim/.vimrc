@@ -127,11 +127,16 @@ cnoremap <silent> <C-j> <C-\><C-n>
 inoremap <silent> <C-k> <Esc>
 cnoremap <silent> <C-k> <C-\><C-n>
 
+nnoremap <silent> + <C-a>
+nnoremap <silent> - <C-x>
+
 nnoremap <silent> <C-=> :call ZoomIn()<CR>
 nnoremap <silent> <C-_> :call ZoomOut()<CR>
 
 nnoremap <silent> <leader>bl :buffers<cr>
 nnoremap <silent> <leader>bq :bdelete! 
+
+nnoremap <silent> x "_x
 
 nnoremap <silent> & viW"ty/<C-r>t<CR>
 
