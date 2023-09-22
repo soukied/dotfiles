@@ -18,7 +18,7 @@ local options = {
 	background = 'dark',
 	cursorline = true,
 	mouse = 'a',
-	guifont = "FiraCode Nerd Font:h9",
+	guifont = "Iosevka Nerd Font:h9",
 	wildoptions = vim.opt.wildoptions - 'pum'
 }
 

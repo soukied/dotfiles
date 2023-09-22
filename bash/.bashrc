@@ -4,6 +4,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+set -o vi
+tabs 4
 export PATH="$PATH:$HOME/.local/bin:$HOME/.config/emacs/bin"
 
 # export PAGER=most
